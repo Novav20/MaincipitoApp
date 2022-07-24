@@ -6964,11 +6964,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\HospiAuto\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
+      "projectUniqueName": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
       "projectName": "Hospi.App.Persistence",
-      "projectPath": "C:\\HospiAuto\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
+      "projectPath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
       "packagesPath": "C:\\Users\\JuanJ\\.nuget\\packages\\",
-      "outputPath": "C:\\HospiAuto\\Hospi.App\\Hospi.App.Persistence\\obj\\",
+      "outputPath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JuanJ\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6982,8 +6982,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\HospiAuto\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {
-              "projectPath": "C:\\HospiAuto\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj"
+            "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {
+              "projectPath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj"
             }
           }
         }

@@ -10,3 +10,15 @@ C:\HospiAuto\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.
 C:\HospiAuto\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.csproj.CopyComplete
 C:\HospiAuto\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.dll
 C:\HospiAuto\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.pdb
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.Persistence.deps.json
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.Persistence.dll
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.Persistence.pdb
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.Domain.dll
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\bin\Debug\netstandard2.1\Hospi.App.Domain.pdb
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.csprojAssemblyReference.cache
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.AssemblyInfoInputs.cache
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.AssemblyInfo.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.csproj.CoreCompileInputs.cache
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.csproj.CopyComplete
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.dll
+C:\MeancipitoApp\Hospi.App\Hospi.App.Persistence\obj\Debug\netstandard2.1\Hospi.App.Persistence.pdb

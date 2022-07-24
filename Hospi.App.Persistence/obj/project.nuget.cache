@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lcd4NhaHn604u3jOnkcqf1pgX/yyjLBdXzwDQ858c7l+juiL40bfx4CGza0dNRYT4jrhVoZ2UEsTK/uTV9456A==",
+  "dgSpecHash": "wFZZ4oVJytw3+fKhLJMDNCAVR1f6VqiL77nAOn1TyxJEiu5mZySA3VJdlxpwxW1QQ0a9CJR83YsIKAiRN46uxw==",
   "success": true,
-  "projectFilePath": "C:\\HospiAuto\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
+  "projectFilePath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Persistence\\Hospi.App.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JuanJ\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\JuanJ\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

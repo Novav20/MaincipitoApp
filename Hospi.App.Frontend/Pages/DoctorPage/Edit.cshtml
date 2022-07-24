@@ -2,32 +2,17 @@
 @model Hospi.App.Frontend.Pages.DoctorPage.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar datos del médico";
 }
 
-<h1>Edit</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Doctor</h4>
+<h4>@Model.Doctor.Name @Model.Doctor.Surname</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Doctor.MedicalSpecialty" class="control-label"></label>
-                <input asp-for="Doctor.MedicalSpecialty" class="form-control" />
-                <span asp-validation-for="Doctor.MedicalSpecialty" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Doctor.Code" class="control-label"></label>
-                <input asp-for="Doctor.Code" class="form-control" />
-                <span asp-validation-for="Doctor.Code" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Doctor.RethusRecord" class="control-label"></label>
-                <input asp-for="Doctor.RethusRecord" class="form-control" />
-                <span asp-validation-for="Doctor.RethusRecord" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="Doctor.Id" />
             <div class="form-group">
                 <label asp-for="Doctor.Name" class="control-label"></label>
@@ -46,20 +31,34 @@
             </div>
             <div class="form-group">
                 <label asp-for="Doctor.Genre" class="control-label"></label>
-                <select asp-for="Doctor.Genre" class="form-control"></select>
-                <span asp-validation-for="Doctor.Genre" class="text-danger"></span>
+                @Html.DropDownList("Doctor.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccione su género",new {@class = "form-control"})
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Doctor.MedicalSpecialty" class="control-label"></label>
+                <input asp-for="Doctor.MedicalSpecialty" class="form-control" />
+                <span asp-validation-for="Doctor.MedicalSpecialty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.Code" class="control-label"></label>
+                <input asp-for="Doctor.Code" class="form-control" />
+                <span asp-validation-for="Doctor.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doctor.RethusRecord" class="control-label"></label>
+                <input asp-for="Doctor.RethusRecord" class="form-control" />
+                <span asp-validation-for="Doctor.RethusRecord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Volver al listado de médicos</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
