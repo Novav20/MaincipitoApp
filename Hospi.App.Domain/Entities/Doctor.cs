@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hospi.App.Domain.Entities
 {
-    [Display(Name ="Médico")]
+    [Display(Name ="Objeto Médico")]
     public class Doctor : Person
     {
         [Required(ErrorMessage ="Se requiere una especialidad"), StringLength(50), Display(Name = "Especialidad")]

@@ -15,5 +15,6 @@ namespace Hospi.App.Persistence.AppRepositories
         Patient Get(int? patientId);
         Task<IList<Patient>> GetAllPatientsOrByName(string searchString=null);
         Doctor AssignDoctor(int patientId, int doctorId);
+        Relative AssignRelative(int patientId, int relativeId);
     }
 }

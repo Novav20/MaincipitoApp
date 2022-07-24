@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Hospi.App.Domain.Entities
 {
+    [Display(Name ="Objeto Familiar")]
     public class Relative : Person
     {
         [Required(ErrorMessage = "Debe proporcionar un parentesco")]

@@ -14412,6 +14412,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Edit.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Delete.cshtml",
       "TargetPath": "Pages\\PatientPage\\Delete.cshtml",
       "FileKind": "mvc"
@@ -14452,6 +14457,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Index.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Details.cshtml",
       "TargetPath": "Pages\\DoctorPage\\Details.cshtml",
       "FileKind": "mvc"
@@ -14462,13 +14472,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Details.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Index.cshtml",
       "TargetPath": "Pages\\DoctorPage\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
+      "TargetPath": "Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Details.cshtml",
       "TargetPath": "Pages\\PatientPage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Delete.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14484,6 +14509,11 @@
     {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Create.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

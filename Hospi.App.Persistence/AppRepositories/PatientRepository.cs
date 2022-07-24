@@ -76,5 +76,22 @@ namespace Hospi.App.Persistence.AppRepositories
             }
             return null;
         }
+        public Relative AssignRelative(int patientId, int relativeId)
+        {
+            var foundPatient = _appContext.Patients.FirstOrDefault(p => p.Id == patientId);
+            if (foundPatient != null)
+            {
+                var foundRelative = _appContext.Relatives.FirstOrDefault(r => r.Id == relativeId);
+                if (foundRelative != null)
+                {
+                    foundPatient.Relative = foundRelative;
+                    _appContext.Update(foundPatient);
+                    _appContext.SaveChanges();
+                    return foundRelative;
+                }
+                return null;
+            }
+            return null;
+        }
     }
 }

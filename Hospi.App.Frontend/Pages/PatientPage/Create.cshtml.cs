@@ -36,9 +36,6 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             {
                 return Page();
             }
-
-            //_context.Patients.Add(Patient);
-            //await _context.SaveChangesAsync();
             patientRepository.Add(Patient);
             
             return RedirectToPage("./Index");

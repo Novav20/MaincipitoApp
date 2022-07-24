@@ -6,34 +6,37 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
-
+using Hospi.App.Persistence.AppRepositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Hospi.App.Frontend.Pages.PatientPage
 {
     public class DetailsModel : PageModel
     {
-        private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
-
-        public DetailsModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
+        private readonly IPatientRepository patientRepository;
+        public DetailsModel(IServiceProvider serviceProvider)
         {
-            _context = context;
+            this.patientRepository = new PatientRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
-
+        
         public Patient Patient { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(int? id)
+        
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Patient = await _context.Patients.FirstOrDefaultAsync(m => m.Id == id);
+            Patient = patientRepository.Get(id);
 
             if (Patient == null)
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

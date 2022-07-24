@@ -1,0 +1,56 @@
+@page
+@model Hospi.App.Frontend.Pages.RelativePage.CreateModel
+
+@{
+    ViewData["Title"] = "Registrar Familiar";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Relative.Name" class="control-label"></label>
+                <input asp-for="Relative.Name" class="form-control" />
+                <span asp-validation-for="Relative.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relative.Surname" class="control-label"></label>
+                <input asp-for="Relative.Surname" class="form-control" />
+                <span asp-validation-for="Relative.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relative.Cellphone" class="control-label"></label>
+                <input asp-for="Relative.Cellphone" class="form-control" />
+                <span asp-validation-for="Relative.Cellphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relative.Genre" class="control-label"></label>
+                @Html.DropDownList("Relative.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccionar género",new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                <label asp-for="Relative.Relationship" class="control-label"></label>
+                <input asp-for="Relative.Relationship" class="form-control" />
+                <span asp-validation-for="Relative.Relationship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relative.Email" class="control-label"></label>
+                <input asp-for="Relative.Email" class="form-control" />
+                <span asp-validation-for="Relative.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Volver al listado de familiares</a>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

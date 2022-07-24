@@ -51,7 +51,7 @@ namespace Hospi.App.Frontend.Pages.PatientPage
         }
         public IActionResult OnPost(int patientId, int doctorId)
         {
-            var AssignedDoctor = patientRepository.AssignDoctor(patientId,doctorId);
+            patientRepository.AssignDoctor(patientId,doctorId);
             
             return RedirectToPage("../Index");
         }

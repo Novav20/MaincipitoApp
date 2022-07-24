@@ -10,6 +10,8 @@ namespace Hospi.App.Domain.Entities
     {
         public History History { get; set; }
         public List<VitalSign> VitalSigns { get; set; }
+        
+        [Display(Name ="Familiar")]
         public Relative Relative { get; set; }
         public Nurse Nurse { get; set; }
 

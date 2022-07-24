@@ -1,4 +1,4 @@
-@page
+@page "{id?}"
 @model Hospi.App.Frontend.Pages.PatientPage.EditModel
 
 @{
@@ -26,8 +26,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Patient.Genre" class="control-label"></label>
-                    @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccione su género",new {@class = "form-control"})
-                </select>
+                @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccionar género",new {@class = "form-control"})
             </div>
             <div class="form-group">
                 <label asp-for="Patient.Cellphone" class="control-label"></label>
@@ -67,6 +66,9 @@
 </div>
 <div>
     <a asp-page="./AssignDoctor/AssignDoctor" asp-route-id="@Model.Patient.Id">Asignar médico</a>
+</div>
+<div>
+    <a asp-page="./AssignRelative/AssignRelative" asp-route-id="@Model.Patient.Id">Asignar Familiar</a>
 </div>
 <div>
     <a asp-page="./Index">Volver al listado de pacientes</a>

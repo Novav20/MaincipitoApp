@@ -1,0 +1,53 @@
+﻿@page "{id?}"
+@model Hospi.App.Frontend.Pages.PatientPage.AssignRelativeModel
+@{
+    ViewData["Title"] = "Asignar Médico";
+}
+<h1>@ViewData["Title"]</h1>
+<h4>@Model.Patient.Name @Model.Patient.Surname</h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Relatives[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Relatives[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Relatives[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Relatives[0].Relationship)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Relatives)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Relationship)
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" asp-for="patientId" value="@Model.Patient.Id">
+                        <input type="hidden" asp-for="relativeId" value="@item.Id">
+                        <input type="submit" value="Asignar" class="btn btn-primary" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

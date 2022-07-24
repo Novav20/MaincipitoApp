@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -47,12 +44,9 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             }
 
             Patient = patientRepository.Get(id);
-            //Patient =  _context.Patients.FindAsync(id);
 
             if (Patient != null)
             {
-                //_context.Patients.Remove(Patient);
-                //await _context.SaveChangesAsync();
                 patientRepository.Delete(Patient);
             }
             return RedirectToPage("./Index");
