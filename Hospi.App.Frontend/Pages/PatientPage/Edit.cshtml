@@ -1,0 +1,77 @@
+@page
+@model Hospi.App.Frontend.Pages.PatientPage.EditModel
+
+@{
+    ViewData["Title"] = "Editar datos del paciente";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>@Model.Patient.Name @Model.Patient.Surname</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patient.Id" />
+            <div class="form-group">
+                <label asp-for="Patient.Name" class="control-label"></label>
+                <input asp-for="Patient.Name" class="form-control" />
+                <span asp-validation-for="Patient.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Surname" class="control-label"></label>
+                <input asp-for="Patient.Surname" class="form-control" />
+                <span asp-validation-for="Patient.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Genre" class="control-label"></label>
+                    @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccione su género",new {@class = "form-control"})
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Cellphone" class="control-label"></label>
+                <input asp-for="Patient.Cellphone" class="form-control" />
+                <span asp-validation-for="Patient.Cellphone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.DateOfBirth" class="control-label"></label>
+                <input asp-for="Patient.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Address" class="control-label"></label>
+                <input asp-for="Patient.Address" class="form-control" />
+                <span asp-validation-for="Patient.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.City" class="control-label"></label>
+                <input asp-for="Patient.City" class="form-control" />
+                <span asp-validation-for="Patient.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Latitude" class="control-label"></label>
+                <input asp-for="Patient.Latitude" class="form-control" />
+                <span asp-validation-for="Patient.Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patient.Longitude" class="control-label"></label>
+                <input asp-for="Patient.Longitude" class="form-control" />
+                <span asp-validation-for="Patient.Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="./AssignDoctor/AssignDoctor" asp-route-id="@Model.Patient.Id">Asignar médico</a>
+</div>
+<div>
+    <a asp-page="./Index">Volver al listado de pacientes</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

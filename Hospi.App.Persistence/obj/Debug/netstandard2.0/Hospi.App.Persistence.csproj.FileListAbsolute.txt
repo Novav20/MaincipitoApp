@@ -1,0 +1,9 @@
+C:\HospiAuto\Hospi.App\hospi.app.persistence\bin\Debug\netstandard2.0\Hospi.App.Persistence.deps.json
+C:\HospiAuto\Hospi.App\hospi.app.persistence\bin\Debug\netstandard2.0\Hospi.App.Persistence.dll
+C:\HospiAuto\Hospi.App\hospi.app.persistence\bin\Debug\netstandard2.0\Hospi.App.Persistence.pdb
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.csprojAssemblyReference.cache
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.AssemblyInfoInputs.cache
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.AssemblyInfo.cs
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.csproj.CoreCompileInputs.cache
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.dll
+C:\HospiAuto\Hospi.App\hospi.app.persistence\obj\Debug\netstandard2.0\Hospi.App.Persistence.pdb

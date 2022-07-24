@@ -1,0 +1,9 @@
+C:\HospiAuto\Hospi.App\hospi.app.domain\bin\Debug\netstandard2.0\Hospi.App.Domain.deps.json
+C:\HospiAuto\Hospi.App\hospi.app.domain\bin\Debug\netstandard2.0\Hospi.App.Domain.dll
+C:\HospiAuto\Hospi.App\hospi.app.domain\bin\Debug\netstandard2.0\Hospi.App.Domain.pdb
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.csprojAssemblyReference.cache
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.AssemblyInfoInputs.cache
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.AssemblyInfo.cs
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.csproj.CoreCompileInputs.cache
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.dll
+C:\HospiAuto\Hospi.App\hospi.app.domain\obj\Debug\netstandard2.0\Hospi.App.Domain.pdb
