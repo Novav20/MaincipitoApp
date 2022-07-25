@@ -12,7 +12,7 @@ namespace Hospi.App.Persistence.AppRepositories
         Doctor Add(Doctor doctor);
         void Update(Doctor doctor);
         void Delete(Doctor doctor);
-        Doctor Get(int? doctorId);
+        Task<Doctor> Get(int? doctorId);
         Task<IList<Doctor>> GetAllDoctorsOrByName(string searchString=null);
     }
 }

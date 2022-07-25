@@ -21,14 +21,14 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             this.patientRepository = new PatientRepository(new MyAppContext(serviceProvider.GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
 
-        public IList<Patient> Patient { get; set; }
+        public IList<Patient> Patients { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         public SelectList Names { get; set; }
         public async Task OnGetAsync()
         {
-            Patient = await patientRepository.GetAllPatientsOrByName(SearchString);
+            Patients = await patientRepository.GetAllPatientsOrByName(SearchString);
         }
     }
 }

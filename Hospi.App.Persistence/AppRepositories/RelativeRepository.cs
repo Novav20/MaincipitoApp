@@ -30,10 +30,9 @@ namespace Hospi.App.Persistence.AppRepositories
             _appContext.Relatives.Remove(relative);
             _appContext.SaveChanges();
         }
-        public Relative Get(int? relativeId)
-        {
-            return _appContext.Relatives.FirstOrDefault(p => p.Id == relativeId);
-        }
+        public async Task<Relative> Get(int? relativeId) => await _appContext.Relatives
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Id == relativeId);
         public void Update(Relative relative)
         {
             //var foundRelative = _appContext.Relatives.FirstOrDefault(p => p.Id == relative.Id);

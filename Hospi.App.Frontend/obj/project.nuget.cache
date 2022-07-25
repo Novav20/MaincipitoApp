@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uc3t6AGZ5MUhGc2wxWxpo9RwP3FU2B2g9i/9a6pXtUUX2VOiOD3eRtrbTBNFTGKtcUPHuEoOu65WXoJWJi3GKw==",
+  "dgSpecHash": "uAZ62MTIus8gp44iADu0zYuigNPO7ZvyIpWknlEIUzHuTxnt3PJXwXpwa826bX9bmQZwrR+iVw3i02J05eCGZw==",
   "success": true,
-  "projectFilePath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Hospi.App.Frontend.csproj",
+  "projectFilePath": "C:\\MaincipitoApp\\Hospi.App.Frontend\\Hospi.App.Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JuanJ\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.9\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\JuanJ\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

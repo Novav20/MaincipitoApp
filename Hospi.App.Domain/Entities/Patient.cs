@@ -8,6 +8,7 @@ namespace Hospi.App.Domain.Entities
     [Display(Name = "Paciente")]
     public class Patient : Person
     {
+        [Display(Name ="Historia Clínica")]
         public History History { get; set; }
         
         [Display(Name ="Signos vitales")]

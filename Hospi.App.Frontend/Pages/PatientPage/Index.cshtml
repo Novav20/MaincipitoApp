@@ -8,7 +8,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-page="Create">Registrar nuevo paciente</a>
+    <a class="btn btn-outline-primary" asp-page="Create">Registrar nuevo paciente</a>
 </p>
 <form>
     <div class="row g-3">
@@ -24,29 +24,29 @@
     </div>
 </form>
 <table class="table">
-    <thead>
+    <thead class="thead-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Id)
+                @Html.DisplayNameFor(model => model.Patients[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Name)
+                @Html.DisplayNameFor(model => model.Patients[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Surname)
+                @Html.DisplayNameFor(model => model.Patients[0].Surname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Cellphone)
+                @Html.DisplayNameFor(model => model.Patients[0].Cellphone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient[0].Address)
+                @Html.DisplayNameFor(model => model.Patients[0].Address)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Patient) {
-        <tr>
+@foreach (var item in Model.Patients) {
+        <tr style="text-align: auto;">
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
@@ -63,9 +63,9 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
+                <a type="button" class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
+                <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }

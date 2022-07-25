@@ -10,7 +10,6 @@ namespace Hospi.App.Persistence.AppRepositories
     public class PatientRepository : IPatientRepository
     {
         private readonly MyAppContext _appContext;
-
         public PatientRepository(MyAppContext appContext)
         {
             _appContext = appContext;
@@ -24,21 +23,20 @@ namespace Hospi.App.Persistence.AppRepositories
             var addedPatient = _appContext.Patients.Add(patient);
             _appContext.SaveChanges();
             return addedPatient.Entity;
-
         }
-
         public void Delete(Patient patient)
         {
             _appContext.Patients.Remove(patient);
             _appContext.SaveChanges();
-
         }
-
-        public Patient Get(int? patientId)
-        {
-            return _appContext.Patients.FirstOrDefault(p => p.Id == patientId);
-        }
-
+        public async Task<Patient> Get(int? patientId) => await _appContext.Patients
+            .Include(p => p.Doctor)
+            .Include(p => p.Relative)
+            .Include(p => p.History)
+            .Include(p => p.VitalSigns)
+            .Include(p => p.Nurse)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Id == patientId);
         public void Update(Patient patient)
         {
             _appContext.Attach(patient).State = EntityState.Modified;
@@ -46,19 +44,13 @@ namespace Hospi.App.Persistence.AppRepositories
         }
         public async Task<IList<Patient>> GetAllPatientsOrByName(string searchString = null)
         {
-            var patients = GetIQPatients();
+            var patients = from m in _appContext.Patients select m;
             if (!string.IsNullOrEmpty(searchString))
             {
                 patients = patients.Where(s => s.Name.Contains(searchString));
             }
             return await patients.ToListAsync();
-
         }
-        private IQueryable<Patient> GetIQPatients()
-        {
-            return from m in _appContext.Patients select m;
-        }
-
         public Doctor AssignDoctor(int patientId, int doctorId)
         {
             var foundPatient = _appContext.Patients.FirstOrDefault(p => p.Id == patientId);
@@ -68,8 +60,6 @@ namespace Hospi.App.Persistence.AppRepositories
                 if (foundDoctor != null)
                 {
                     foundPatient.Doctor = foundDoctor;
-                    _appContext.Update(foundPatient);
-                    _appContext.Update(foundDoctor);
                     _appContext.SaveChanges();
                     return foundDoctor;
                 }
@@ -86,9 +76,24 @@ namespace Hospi.App.Persistence.AppRepositories
                 if (foundRelative != null)
                 {
                     foundPatient.Relative = foundRelative;
-                    _appContext.Update(foundPatient);
                     _appContext.SaveChanges();
                     return foundRelative;
+                }
+                return null;
+            }
+            return null;
+        }
+        public History AssignHistory(int patientId, int historyId)
+        {
+            var foundPatient = _appContext.Patients.FirstOrDefault(p => p.Id == patientId);
+            if (foundPatient != null)
+            {
+                var foundHistory = _appContext.Histories.FirstOrDefault(r => r.Id == historyId);
+                if (foundHistory != null)
+                {
+                    foundPatient.History = foundHistory;
+                    _appContext.SaveChanges();
+                    return foundHistory;
                 }
                 return null;
             }

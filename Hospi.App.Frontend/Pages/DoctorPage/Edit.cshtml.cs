@@ -24,14 +24,13 @@ namespace Hospi.App.Frontend.Pages.DoctorPage
         [BindProperty]
         public Doctor Doctor { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            Doctor = doctorRepository.Get(id);
+            Doctor = await doctorRepository.Get(id);
 
             if (Doctor == null)
             {

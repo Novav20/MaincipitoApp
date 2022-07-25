@@ -7,7 +7,7 @@
 <h4>@Model.Patient.Name @Model.Patient.Surname</h4>
 <hr />
 <table class="table">
-    <thead>
+    <thead class="thead-light">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Doctors[0].Id)
@@ -27,7 +27,7 @@
     <tbody>
         @foreach (var item in Model.Doctors)
         {
-            <tr>
+            <tr style="text-align: auto;">
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>

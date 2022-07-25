@@ -24,14 +24,14 @@ namespace Hospi.App.Frontend.Pages.RelativePage
         [BindProperty]
         public Relative Relative { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Relative = relativeRepository.Get(id);
+            Relative = await relativeRepository.Get(id);
 
             if (Relative == null)
             {

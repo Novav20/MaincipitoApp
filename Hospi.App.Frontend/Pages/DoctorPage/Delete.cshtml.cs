@@ -23,14 +23,14 @@ namespace Hospi.App.Frontend.Pages.DoctorPage
         [BindProperty]
         public Doctor Doctor { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Doctor = doctorRepository.Get(id);
+            Doctor = await doctorRepository.Get(id);
 
             if (Doctor == null)
             {
@@ -39,20 +39,16 @@ namespace Hospi.App.Frontend.Pages.DoctorPage
             return Page();
         }
 
-        public IActionResult OnPost(int? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            Doctor = doctorRepository.Get(id);
-            //Doctor =  _context.Doctors.FindAsync(id);
+            Doctor = await doctorRepository.Get(id);
 
             if (Doctor != null)
             {
-                //_context.Doctors.Remove(Doctor);
-                //await _context.SaveChangesAsync();
                 doctorRepository.Delete(Doctor);
             }
             return RedirectToPage("./Index");

@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Hospi.App.Frontend.Pages.RelativePage
 {
     public class DetailsModel : PageModel
     {
-        private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
+        private readonly IRelativeRepository relativeRepository;
 
-        public DetailsModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
+        public DetailsModel(IServiceProvider serviceProvider)
         {
-            _context = context;
+            this.relativeRepository = new RelativeRepository(new MyAppContext(serviceProvider.GetRequiredService<DbContextOptions<MyAppContext>>()));
+
         }
 
         public Relative Relative { get; set; }
@@ -28,7 +30,7 @@ namespace Hospi.App.Frontend.Pages.RelativePage
                 return NotFound();
             }
 
-            Relative = await _context.Relatives.FirstOrDefaultAsync(m => m.Id == id);
+            Relative = await relativeRepository.Get(id);
 
             if (Relative == null)
             {

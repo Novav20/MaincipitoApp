@@ -10,7 +10,7 @@ namespace Hospi.App.Domain.Entities
         public int Id { get; set; }
         
         [Display(Name ="Sugerencias")]
-        public List<CareSuggestion> Suggestions { get; set; }
+        public IList<CareSuggestion> Suggestions { get; set; }
         
         //[StringLength(200)]
         [Display(Name ="Diagnostico")]

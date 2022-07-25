@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hospi.App.Domain.Entities
@@ -14,6 +15,9 @@ namespace Hospi.App.Domain.Entities
 
         [Required(ErrorMessage = "Debe proporcionar el registro rethus"), StringLength(50), Display(Name = "Registro Rethus")]
         public string RethusRecord { get; set; }
+
+        [Display(Name ="Pacientes a cargo")]
+        public IList<Patient> Patients {get;set;}
     }
 
 }

@@ -12,7 +12,7 @@ namespace Hospi.App.Persistence.AppRepositories
         Relative Add(Relative relative);
         void Update(Relative relative);
         void Delete(Relative relative);
-        Relative Get(int? relativeId);
-        Task<IList<Relative>> GetAllRelativesOrByName(string searchString=null);
+        Task<Relative> Get(int? relativeId);
+        Task<IList<Relative>> GetAllRelativesOrByName(string searchString = null);
     }
 }

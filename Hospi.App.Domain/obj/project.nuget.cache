@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lwGQG1m0pj2j7A7OwaWdprpgkQdwf0XXLp5N6vCNoHAJ1vinka00pjdZwEqL1d6DHCgVnAgDRHoGsrTbflWIiA==",
+  "dgSpecHash": "/SRiAmvk2/MbCQmIciH2uHfaSliGK3VYq/7rafMOMv+tP1lBC0N/7nLRcUSi8HdGaa2e8hDBMWYMHnDwI4RwZw==",
   "success": true,
-  "projectFilePath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
+  "projectFilePath": "C:\\MaincipitoApp\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JuanJ\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],

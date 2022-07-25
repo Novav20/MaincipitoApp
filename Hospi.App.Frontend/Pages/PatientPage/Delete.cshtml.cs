@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace Hospi.App.Frontend.Pages.PatientPage
 {
@@ -20,14 +21,14 @@ namespace Hospi.App.Frontend.Pages.PatientPage
         [BindProperty]
         public Patient Patient { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Patient = patientRepository.Get(id);
+            Patient = await patientRepository.Get(id);
 
             if (Patient == null)
             {
@@ -36,14 +37,14 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             return Page();
         }
 
-        public IActionResult OnPost(int? id)
+        public async Task<IActionResult> OnPost(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Patient = patientRepository.Get(id);
+            Patient = await patientRepository.Get(id);
 
             if (Patient != null)
             {

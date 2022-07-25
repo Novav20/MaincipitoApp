@@ -1,4 +1,4 @@
-@page
+@page "{id?}"
 @model Hospi.App.Frontend.Pages.RelativePage.DetailsModel
 
 @{
@@ -56,6 +56,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Relative.Id">Editar</a> |
-    <a asp-page="./Index">Volver al listado de familiares</a>
+    <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@Model.Relative.Id">Editar</a> |
+    <a class="btn btn-secondary" asp-page="./Index">Volver al listado de familiares</a>
 </div>

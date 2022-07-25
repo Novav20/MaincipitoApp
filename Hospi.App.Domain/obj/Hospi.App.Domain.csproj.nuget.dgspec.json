@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {}
+    "C:\\MaincipitoApp\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {}
   },
   "projects": {
-    "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {
+    "C:\\MaincipitoApp\\Hospi.App.Domain\\Hospi.App.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
+        "projectUniqueName": "C:\\MaincipitoApp\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
         "projectName": "Hospi.App.Domain",
-        "projectPath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
+        "projectPath": "C:\\MaincipitoApp\\Hospi.App.Domain\\Hospi.App.Domain.csproj",
         "packagesPath": "C:\\Users\\JuanJ\\.nuget\\packages\\",
-        "outputPath": "C:\\MeancipitoApp\\Hospi.App\\Hospi.App.Domain\\obj\\",
+        "outputPath": "C:\\MaincipitoApp\\Hospi.App.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JuanJ\\AppData\\Roaming\\NuGet\\NuGet.Config"

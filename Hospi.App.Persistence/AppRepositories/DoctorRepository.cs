@@ -30,10 +30,11 @@ namespace Hospi.App.Persistence.AppRepositories
             _appContext.Doctors.Remove(doctor);
             _appContext.SaveChanges();
         }
-        public Doctor Get(int? doctorId)
-        {
-            return _appContext.Doctors.FirstOrDefault(p => p.Id == doctorId);
-        }
+        public async Task<Doctor> Get(int? doctorId) => await _appContext.Doctors
+        .Include(d => d.Patients)
+        .AsNoTracking()
+        .FirstOrDefaultAsync(d => d.Id == doctorId);
+
         public void Update(Doctor doctor)
         {
             //var foundDoctor = _appContext.Doctors.FirstOrDefault(p => p.Id == doctor.Id);

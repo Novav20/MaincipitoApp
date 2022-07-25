@@ -12,9 +12,11 @@ namespace Hospi.App.Persistence.AppRepositories
         Patient Add(Patient patient);
         void Update(Patient patient);
         void Delete(Patient patient);
-        Patient Get(int? patientId);
-        Task<IList<Patient>> GetAllPatientsOrByName(string searchString=null);
+        Task<Patient> Get(int? patientId);
+        Task<IList<Patient>> GetAllPatientsOrByName(string searchString = null);
         Doctor AssignDoctor(int patientId, int doctorId);
         Relative AssignRelative(int patientId, int relativeId);
+        History AssignHistory(int patientId, int historyId);
+        
     }
 }

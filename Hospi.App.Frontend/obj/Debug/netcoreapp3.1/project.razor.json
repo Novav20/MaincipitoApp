@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Hospi.App.Frontend.csproj",
+  "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Hospi.App.Frontend.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14402,148 +14402,148 @@
   "RootNamespace": "Hospi.App.Frontend",
   "Documents": [
     {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
-      "TargetPath": "Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
-      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Index.cshtml",
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Index.cshtml",
       "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Create.cshtml",
-      "TargetPath": "Pages\\DoctorPage\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Edit.cshtml",
-      "TargetPath": "Pages\\RelativePage\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
-      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Delete.cshtml",
-      "TargetPath": "Pages\\PatientPage\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Create.cshtml",
-      "TargetPath": "Pages\\PatientPage\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Edit.cshtml",
-      "TargetPath": "Pages\\PatientPage\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Index.cshtml",
-      "TargetPath": "Pages\\PatientPage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Edit.cshtml",
-      "TargetPath": "Pages\\DoctorPage\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Delete.cshtml",
-      "TargetPath": "Pages\\DoctorPage\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Index.cshtml",
-      "TargetPath": "Pages\\RelativePage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
-      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Details.cshtml",
-      "TargetPath": "Pages\\DoctorPage\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Details.cshtml",
-      "TargetPath": "Pages\\RelativePage\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Index.cshtml",
-      "TargetPath": "Pages\\DoctorPage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
-      "TargetPath": "Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Details.cshtml",
-      "TargetPath": "Pages\\PatientPage\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
-      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Delete.cshtml",
-      "TargetPath": "Pages\\RelativePage\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Create.cshtml",
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\RelativePage\\Create.cshtml",
       "TargetPath": "Pages\\RelativePage\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\Error.cshtml",
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\Create.cshtml",
+      "TargetPath": "Pages\\PatientPage\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\Index.cshtml",
+      "TargetPath": "Pages\\PatientPage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\Edit.cshtml",
+      "TargetPath": "Pages\\PatientPage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
+      "TargetPath": "Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
+      "TargetPath": "Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\DoctorPage\\Create.cshtml",
+      "TargetPath": "Pages\\DoctorPage\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\DoctorPage\\Index.cshtml",
+      "TargetPath": "Pages\\DoctorPage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\RelativePage\\Edit.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\RelativePage\\Details.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\Delete.cshtml",
+      "TargetPath": "Pages\\PatientPage\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\RelativePage\\Index.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\DoctorPage\\Edit.cshtml",
+      "TargetPath": "Pages\\DoctorPage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\Details.cshtml",
+      "TargetPath": "Pages\\PatientPage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\DoctorPage\\Details.cshtml",
+      "TargetPath": "Pages\\DoctorPage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\DoctorPage\\Delete.cshtml",
+      "TargetPath": "Pages\\DoctorPage\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\RelativePage\\Delete.cshtml",
+      "TargetPath": "Pages\\RelativePage\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\Index.cshtml",
+      "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     }
   ],

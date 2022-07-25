@@ -8,11 +8,8 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-page="Create">Registrar nuevo familiar</a>
-</p>
 <table class="table">
-    <thead>
+    <thead class="thead-light">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Relative[0].Id)
@@ -31,7 +28,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model.Relative) {
-        <tr>
+        <tr style="text-align: auto;">
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
@@ -45,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Relationship)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
+                <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
+                <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
             </td>
         </tr>
 }

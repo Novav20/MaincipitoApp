@@ -41,7 +41,7 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             }
             Relatives = await relativeRepository.GetAllRelativesOrByName();
 
-            Patient = patientRepository.Get(id);
+            Patient = await patientRepository.Get(id);
 
             if (Patient == null)
             {

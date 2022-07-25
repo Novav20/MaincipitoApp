@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace Hospi.App.Frontend.Pages.RelativePage
 {
@@ -20,14 +21,14 @@ namespace Hospi.App.Frontend.Pages.RelativePage
         [BindProperty]
         public Relative Relative { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Relative = relativeRepository.Get(id);
+            Relative = await relativeRepository.Get(id);
 
             if (Relative == null)
             {
@@ -36,14 +37,14 @@ namespace Hospi.App.Frontend.Pages.RelativePage
             return Page();
         }
 
-        public IActionResult OnPost(int? id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Relative = relativeRepository.Get(id);
+            Relative = await relativeRepository.Get(id);
 
             if (Relative != null)
             {

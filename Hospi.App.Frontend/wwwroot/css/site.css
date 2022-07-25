@@ -63,9 +63,113 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
+  position: inherit;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/*Style */
+
+/*All Page*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/*Header*/
+.head {
+  width: 100%;
+  height: 550%;
+  background: rgb(240, 240, 240);
+  border: 0 15px 15px 15px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 7px 25px 7px rgb(129, 129, 129);
+  border-radius: 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.head p {
+  font-size: 3rem;
+  font-weight: 2;
+  font-family: sans-serif;
+  font-style: italic;
+  color: rgb(80, 80, 80);
+}
+
+.head input {
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  font-style: italic;
+  margin: 0.5rem;
+  border: #ffffff;
+  text-align: center;
+}
+
+.head label{
+  font-style: italic;
+  font-weight: bolder; 
+}
+
+.head select {
+  height: 2rem;
+   width: auto;
+   border-radius: .5rem;
+   font-style: italic;
+   font-weight: bolder;
+   border: rgb(255, 255, 255);
+}
+
+.head button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0.5rem;
+}
+
+.head li{
+  list-style: none;
+}
+
+
+/*Icon Social*/
+.social {
+  margin: 5px;
+}
+
+.social p {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-style: italic;
+  color: rgb(192, 187, 187);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links a {
+  margin: 0 5px;
+}
+
+.links a i {
+  font-size: 50px;
+  color: rgb(192, 187, 187);
 }

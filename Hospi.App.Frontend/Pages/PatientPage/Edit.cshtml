@@ -65,16 +65,16 @@
     </div>
 </div>
 <div>
-    <a asp-page="./AssignDoctor/AssignDoctor" asp-route-id="@Model.Patient.Id">Asignar médico</a>
+    <a class="btn btn-primary" asp-page="./AssignDoctor/AssignDoctor" asp-route-id="@Model.Patient.Id">Asignar médico</a>
 </div>
 <div>
-    <a asp-page="./AssignRelative/AssignRelative" asp-route-id="@Model.Patient.Id">Asignar Familiar</a>
+    <a style="margin-top: 20px;"class="btn btn-primary" asp-page="./AssignRelative/AssignRelative" asp-route-id="@Model.Patient.Id">Asignar Familiar</a>
 </div>
 <div>
-    <a asp-page="./RecordVitalSigns/Create" asp-route-id="@Model.Patient.Id">Registrar signos vitales</a>
+    <a style="margin-top: 20px;"class="btn btn-primary" asp-page="./RecordVitalSigns/Create" asp-route-id="@Model.Patient.Id">Registrar signos vitales</a>
 </div>
 <div>
-    <a asp-page="./Index">Volver al listado de pacientes</a>
+    <a style="margin-top: 20px;" class="btn btn-secondary" asp-page="./Index">Volver al listado de pacientes</a>
 </div>
 
 @section Scripts {

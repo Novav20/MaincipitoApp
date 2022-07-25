@@ -11,7 +11,6 @@ namespace Hospi.App.Domain.Entities
         public int Id { get; set; }
 
         [Display(Name = "Fecha")]
-        [DataType(DataType.Date)]
         public DateTime DateTime { get; set; }
         
         [Required(ErrorMessage = "Debe proporcionar un valor"), Display(Name = "Valor")]
