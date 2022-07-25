@@ -14,28 +14,51 @@ namespace Hospi.App.Frontend.Pages.PatientPage
     public class DetailsModel : PageModel
     {
         private readonly IPatientRepository patientRepository;
-        public DetailsModel(IServiceProvider serviceProvider)
+        private readonly IDoctorRepository doctorRepository;
+        private readonly IRelativeRepository relativeRepository;
+
+        private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
+        public DetailsModel(IServiceProvider serviceProvider, MyAppContext context)
         {
             this.patientRepository = new PatientRepository(
                 new MyAppContext(serviceProvider
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
+
+            this.doctorRepository = new DoctorRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
+
+            this.relativeRepository = new RelativeRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
+
+            _context = context;
         }
-        
+
         public Patient Patient { get; set; }
-        
-        public IActionResult OnGet(int? id)
+
+        public Doctor Doctor { get; set; }
+        public Relative Relative { get; set; }
+
+
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Patient = patientRepository.Get(id);
+            string query = "SELECT * FROM People WHERE Id = {0}";
+            Patient = await _context.Patients
+       .FromSqlRaw(query, id)
+       .Include(d => d.Doctor)
+       .Include(d => d.Relative)
+       .AsNoTracking()
+       .FirstOrDefaultAsync();
 
-            if (Patient == null)
-            {
-                return NotFound();
-            }
+            Doctor = Patient.Doctor;
+
+            Relative = Patient.Relative;
 
             return Page();
         }

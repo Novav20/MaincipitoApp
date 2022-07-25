@@ -9,7 +9,9 @@ namespace Hospi.App.Domain.Entities
     public class Patient : Person
     {
         public History History { get; set; }
-        public List<VitalSign> VitalSigns { get; set; }
+        
+        [Display(Name ="Signos vitales")]
+        public IList<VitalSign> VitalSigns { get; set; }
         
         [Display(Name ="Familiar")]
         public Relative Relative { get; set; }

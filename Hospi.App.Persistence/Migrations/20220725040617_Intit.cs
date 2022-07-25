@@ -106,7 +106,7 @@ namespace Hospi.App.Persistence.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    Value = table.Column<double>(nullable: false),
+                    Value = table.Column<string>(nullable: false),
                     Sign = table.Column<int>(nullable: false),
                     PatientId = table.Column<int>(nullable: true)
                 },

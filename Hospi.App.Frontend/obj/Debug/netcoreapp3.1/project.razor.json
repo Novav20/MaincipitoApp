@@ -14407,6 +14407,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Index.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Create.cshtml",
       "TargetPath": "Pages\\DoctorPage\\Create.cshtml",
       "FileKind": "mvc"
@@ -14414,6 +14424,11 @@
     {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\RelativePage\\Edit.cshtml",
       "TargetPath": "Pages\\RelativePage\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14462,6 +14477,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\DoctorPage\\Details.cshtml",
       "TargetPath": "Pages\\DoctorPage\\Details.cshtml",
       "FileKind": "mvc"
@@ -14489,6 +14509,11 @@
     {
       "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\Details.cshtml",
       "TargetPath": "Pages\\PatientPage\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\MeancipitoApp\\Hospi.App\\Hospi.App.Frontend\\Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
+      "TargetPath": "Pages\\PatientPage\\RecordVitalSigns\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

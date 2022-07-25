@@ -380,3 +380,8 @@ C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Page
 C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\RelativePage\Edit.cshtml.g.cs
 C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\RelativePage\Index.cshtml.g.cs
 C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\AssignRelative\AssignRelative.cshtml.g.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\RecordVitalSigns\Create.cshtml.g.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\RecordVitalSigns\Delete.cshtml.g.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\RecordVitalSigns\Details.cshtml.g.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\RecordVitalSigns\Edit.cshtml.g.cs
+C:\MeancipitoApp\Hospi.App\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\RecordVitalSigns\Index.cshtml.g.cs

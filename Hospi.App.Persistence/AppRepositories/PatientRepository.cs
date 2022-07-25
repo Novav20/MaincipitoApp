@@ -69,6 +69,7 @@ namespace Hospi.App.Persistence.AppRepositories
                 {
                     foundPatient.Doctor = foundDoctor;
                     _appContext.Update(foundPatient);
+                    _appContext.Update(foundDoctor);
                     _appContext.SaveChanges();
                     return foundDoctor;
                 }
