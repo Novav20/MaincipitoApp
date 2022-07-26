@@ -9,7 +9,6 @@ namespace Hospi.App.Persistence.AppRepositories
     public interface IRelativeRepository
     {
         bool RelativeExists(int id);
-        Relative Add(Relative relative);
         void Update(Relative relative);
         void Delete(Relative relative);
         Task<Relative> Get(int? relativeId);

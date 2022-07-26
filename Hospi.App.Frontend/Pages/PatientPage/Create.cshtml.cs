@@ -18,7 +18,9 @@ namespace Hospi.App.Frontend.Pages.PatientPage
 
         public CreateModel(IServiceProvider serviceProvider)
         {
-            this.patientRepository = new PatientRepository(new MyAppContext(serviceProvider.GetRequiredService<DbContextOptions<MyAppContext>>()));
+            this.patientRepository = new PatientRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
 
         public IActionResult OnGet()

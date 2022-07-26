@@ -99,6 +99,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Compat.System.Diagnostics.CodeAnalysis": {
+              "target": "Package",
+              "version": "[0.1.1, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.9, )"

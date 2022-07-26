@@ -19,12 +19,6 @@ namespace Hospi.App.Persistence.AppRepositories
         {
             return _appContext.Relatives.Any(e => e.Id == id);
         }
-        public Relative Add(Relative relative)
-        {
-            var addedRelative = _appContext.Relatives.Add(relative);
-            _appContext.SaveChanges();
-            return addedRelative.Entity;
-        }
         public void Delete(Relative relative)
         {
             _appContext.Relatives.Remove(relative);

@@ -14442,11 +14442,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
-      "TargetPath": "Pages\\PatientPage\\AssignRelative\\AssignRelative.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\MaincipitoApp\\Hospi.App.Frontend\\Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
       "TargetPath": "Pages\\PatientPage\\AssignDoctor\\AssignDoctor.cshtml",
       "FileKind": "mvc"

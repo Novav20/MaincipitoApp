@@ -241,7 +241,7 @@ namespace Hospi.App.Persistence.Migrations
             modelBuilder.Entity("Hospi.App.Domain.Entities.Patient", b =>
                 {
                     b.HasOne("Hospi.App.Domain.Entities.Doctor", "Doctor")
-                        .WithMany()
+                        .WithMany("Patients")
                         .HasForeignKey("DoctorId");
 
                     b.HasOne("Hospi.App.Domain.Entities.History", "History")

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Hospi.App.Domain.Entities;
 
@@ -13,10 +16,12 @@ namespace Hospi.App.Persistence.AppRepositories
         void Update(Patient patient);
         void Delete(Patient patient);
         Task<Patient> Get(int? patientId);
+        Task<Patient> Get(Expression<Func<Patient, bool>> predicate, CancellationToken cancellationToken = default);
+
+        //public static Task<TSource> FirstOrDefaultAsync<TSource>([NotNullAttribute] this IQueryable<TSource> source, [NotNullAttribute] Expression<Func<TSource, bool>> predicate, CancellationToken cancellationToken = default);
         Task<IList<Patient>> GetAllPatientsOrByName(string searchString = null);
         Doctor AssignDoctor(int patientId, int doctorId);
-        Relative AssignRelative(int patientId, int relativeId);
+        Task<Relative> AssignRelative(int patientId, Relative relative);
         History AssignHistory(int patientId, int historyId);
-        
     }
 }

@@ -753,7 +753,6 @@ C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\DoctorPa
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\AssignDoctor\AssignDoctor.cshtml.g.cs
-C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\AssignRelative\AssignRelative.cshtml.g.cs
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\Create.cshtml.g.cs
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\Delete.cshtml.g.cs
 C:\MaincipitoApp\Hospi.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\PatientPage\Details.cshtml.g.cs

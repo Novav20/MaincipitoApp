@@ -2,6 +2,12 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Compat.System.Diagnostics.CodeAnalysis/0.1.1": {
+        "type": "package",
+        "build": {
+          "build/Compat.System.Diagnostics.CodeAnalysis.targets": {}
+        }
+      },
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.9": {
         "type": "package",
         "dependencies": {
@@ -2790,6 +2796,19 @@
     }
   },
   "libraries": {
+    "Compat.System.Diagnostics.CodeAnalysis/0.1.1": {
+      "sha512": "6gG8pKsofG0qplWvjR3UQX6XHWymQbVNk0x8x8dvUeun/AZYXaJoskv/2R0OPS+fgmpV5fRWKTdrZmYw5r5/bg==",
+      "type": "package",
+      "path": "compat.system.diagnostics.codeanalysis/0.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Compat.System.Diagnostics.CodeAnalysis.targets",
+        "build/NullableAttributes.cs",
+        "compat.system.diagnostics.codeanalysis.0.1.1.nupkg.sha512",
+        "compat.system.diagnostics.codeanalysis.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/3.1.9": {
       "sha512": "RL07qlC/MeNtVQLnJtYkWJPxr3vCXs9eGWMFNx6nfxMl2IO/HLOJ5f5vKWR+PCxaHwmeGIZCEvth/sM6hUk9Zg==",
       "type": "package",
@@ -8874,6 +8893,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Compat.System.Diagnostics.CodeAnalysis >= 0.1.1",
       "Hospi.App.Domain >= 1.0.0",
       "Hospi.App.Persistence >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.9",
@@ -8926,6 +8946,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Compat.System.Diagnostics.CodeAnalysis": {
+            "target": "Package",
+            "version": "[0.1.1, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.9, )"

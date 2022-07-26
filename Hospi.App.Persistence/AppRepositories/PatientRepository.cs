@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Hospi.App.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +40,7 @@ namespace Hospi.App.Persistence.AppRepositories
             .Include(p => p.Nurse)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == patientId);
+
         public void Update(Patient patient)
         {
             _appContext.Attach(patient).State = EntityState.Modified;
@@ -67,17 +71,21 @@ namespace Hospi.App.Persistence.AppRepositories
             }
             return null;
         }
-        public Relative AssignRelative(int patientId, int relativeId)
+        public async Task<Relative> AssignRelative(int patientId, Relative relative)
         {
-            var foundPatient = _appContext.Patients.FirstOrDefault(p => p.Id == patientId);
+            var foundPatient = await _appContext.Patients.FirstOrDefaultAsync(p => p.Id == patientId);
             if (foundPatient != null)
             {
-                var foundRelative = _appContext.Relatives.FirstOrDefault(r => r.Id == relativeId);
-                if (foundRelative != null)
+
+                var addedRelative = await _appContext.Relatives.AddAsync(relative);
+
+                await _appContext.SaveChangesAsync();
+
+                if (addedRelative != null)
                 {
-                    foundPatient.Relative = foundRelative;
-                    _appContext.SaveChanges();
-                    return foundRelative;
+                    foundPatient.Relative = addedRelative.Entity;
+                    await _appContext.SaveChangesAsync();
+                    return addedRelative.Entity;
                 }
                 return null;
             }
@@ -98,6 +106,18 @@ namespace Hospi.App.Persistence.AppRepositories
                 return null;
             }
             return null;
+        }
+
+        public async Task<Patient> Get(Expression<Func<Patient, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            return await _appContext.Patients
+             .Include(p => p.Doctor)
+             .Include(p => p.Relative)
+             .Include(p => p.History)
+             .Include(p => p.VitalSigns)
+             .Include(p => p.Nurse)
+             .AsNoTracking()
+             .FirstOrDefaultAsync(predicate);
         }
     }
 }
