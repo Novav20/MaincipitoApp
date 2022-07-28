@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\hospiauto\\hospi.app\\Hospi.App.Services\\Hospi.App.Services.csproj",
+      "projectUniqueName": "C:\\MaincipitoApp\\Hospi.App.Services\\Hospi.App.Services.csproj",
       "projectName": "Hospi.App.Services",
-      "projectPath": "C:\\hospiauto\\hospi.app\\Hospi.App.Services\\Hospi.App.Services.csproj",
+      "projectPath": "C:\\MaincipitoApp\\Hospi.App.Services\\Hospi.App.Services.csproj",
       "packagesPath": "C:\\Users\\JuanJ\\.nuget\\packages\\",
-      "outputPath": "C:\\hospiauto\\hospi.app\\Hospi.App.Services\\obj\\",
+      "outputPath": "C:\\MaincipitoApp\\Hospi.App.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JuanJ\\AppData\\Roaming\\NuGet\\NuGet.Config"

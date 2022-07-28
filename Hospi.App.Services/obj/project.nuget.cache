@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PeVcnMpS2EImtbcg+ptSdvJSW8Um+Gw09DQWLSxnIUbWIJTKkCQx9mQ+0zpkFJiKhURRshNVvS8rmieC54ZJ0Q==",
+  "dgSpecHash": "DpXe0+gSdLw5P1Zi2DwLWSF+JjGi8oYF7B38dEetCitWnmeFh6wIl9q2A03OguSsoFtvtkbArriPPeP6c8CYWw==",
   "success": true,
-  "projectFilePath": "c:\\HospiAuto\\Hospi.App\\Hospi.App.Services\\Hospi.App.Services.csproj",
+  "projectFilePath": "C:\\MaincipitoApp\\Hospi.App.Services\\Hospi.App.Services.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
