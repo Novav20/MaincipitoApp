@@ -57,7 +57,7 @@ namespace Hospi.App.Frontend.Pages.RelativePage
 
             Patient = await patientRepository.Get(id);
             
-            return RedirectToRoute("../PatientPage/Index",new{id = Patient.Id});
+            return RedirectToRoute("../PatientPage/Index");
         }
     }
 }
