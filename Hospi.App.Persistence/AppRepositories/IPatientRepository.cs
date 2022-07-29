@@ -17,9 +17,8 @@ namespace Hospi.App.Persistence.AppRepositories
         void Delete(Patient patient);
         Task<Patient> Get(int? patientId);
         Task<Patient> Get(Expression<Func<Patient, bool>> predicate, CancellationToken cancellationToken = default);
-
-        //public static Task<TSource> FirstOrDefaultAsync<TSource>([NotNullAttribute] this IQueryable<TSource> source, [NotNullAttribute] Expression<Func<TSource, bool>> predicate, CancellationToken cancellationToken = default);
-        Task<IList<Patient>> GetAllPatientsOrByName(string searchString = null);
+        Task<IList<Patient>> GetAllOrFilterPatients(string searchString = null);
+        Task<IList<Patient>> GetAllOrFilterPatients(int Id);
         Doctor AssignDoctor(int patientId, int doctorId);
         Task<Relative> AssignRelative(int patientId, Relative relative);
         History AssignHistory(int patientId, int historyId);

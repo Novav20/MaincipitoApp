@@ -46,7 +46,7 @@ namespace Hospi.App.Persistence.AppRepositories
             _appContext.Attach(patient).State = EntityState.Modified;
             _appContext.SaveChanges();
         }
-        public async Task<IList<Patient>> GetAllPatientsOrByName(string searchString = null)
+        public async Task<IList<Patient>> GetAllOrFilterPatients(string searchString = null)
         {
             var patients = from m in _appContext.Patients select m;
             if (!string.IsNullOrEmpty(searchString))
@@ -107,17 +107,22 @@ namespace Hospi.App.Persistence.AppRepositories
             }
             return null;
         }
-
         public async Task<Patient> Get(Expression<Func<Patient, bool>> predicate, CancellationToken cancellationToken = default)
         {
             return await _appContext.Patients
-             .Include(p => p.Doctor)
-             .Include(p => p.Relative)
-             .Include(p => p.History)
-             .Include(p => p.VitalSigns)
-             .Include(p => p.Nurse)
-             .AsNoTracking()
-             .FirstOrDefaultAsync(predicate);
+            .Include(p => p.Doctor)
+            .Include(p => p.Relative)
+            .Include(p => p.History)
+            .Include(p => p.VitalSigns)
+            .Include(p => p.Nurse)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(predicate);
+        }
+        public async Task<IList<Patient>> GetAllOrFilterPatients(int Id)
+        {
+            var patients = from m in _appContext.Patients select m;
+            patients = patients.Where(s => s.Id == Id);
+            return await patients.ToListAsync();
         }
     }
 }
