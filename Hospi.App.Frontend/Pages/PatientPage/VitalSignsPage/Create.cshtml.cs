@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
+namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
 {
     public class CreateModel : PageModel
     {
-        private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
+        private readonly IPatientRepository patientRepository;
 
-        public CreateModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
+        public CreateModel(IServiceProvider serviceProvider)
         {
-            _context = context;
+            this.patientRepository = new PatientRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
 
         public IActionResult OnGet()
@@ -26,20 +30,17 @@ namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
 
         [BindProperty]
         public VitalSign VitalSign { get; set; }
-
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            VitalSign = await patientRepository.AssignVitalSign(id,VitalSign);
 
-            _context.VitalSigns.Add(VitalSign);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Details", new {id = id});
         }
     }
 }

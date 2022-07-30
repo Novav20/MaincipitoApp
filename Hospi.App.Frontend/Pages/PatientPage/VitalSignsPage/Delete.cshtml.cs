@@ -4,18 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
+namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
 {
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
 
-        public EditModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
+        public DeleteModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
         {
             _context = context;
         }
@@ -39,39 +38,22 @@ namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(VitalSign).State = EntityState.Modified;
+            VitalSign = await _context.VitalSigns.FindAsync(id);
 
-            try
+            if (VitalSign != null)
             {
+                _context.VitalSigns.Remove(VitalSign);
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!VitalSignExists(VitalSign.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool VitalSignExists(int id)
-        {
-            return _context.VitalSigns.Any(e => e.Id == id);
         }
     }
 }

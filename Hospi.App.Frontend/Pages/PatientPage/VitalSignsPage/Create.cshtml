@@ -1,6 +1,6 @@
 @page
-@model Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns.CreateModel
-
+@model Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage.CreateModel
+@using Hospi.App.Domain.Entities
 @{
     ViewData["Title"] = "Create";
 }
@@ -25,7 +25,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="VitalSign.Sign" class="control-label"></label>
-                @Html.DropDownList("VitalSign.Sign",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Sign>(),"Seleccionar Signo Vital",new {@class = "form-control"})
+                @Html.DropDownList("VitalSign.Sign",Html.GetEnumSelectList<Sign>(),"Seleccionar género",new {@class = "form-control"})
+
+                <span asp-validation-for="VitalSign.Sign" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -35,7 +37,7 @@
 </div>
 
 <div>
-    <a class="btn btn-secondary" asp-page="Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

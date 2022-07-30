@@ -1,6 +1,6 @@
 @page
 @model Hospi.App.Frontend.Pages.PatientPage.CreateModel
-
+@using Hospi.App.Domain.Entities
 @{
     ViewData["Title"] = "Registrar Paciente";
 }
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Patient.Genre" class="control-label"></label>
-                @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccionar género",new {@class = "form-control"})
+                <select asp-for = "Patient.Genre" asp-items = "Html.GetEnumSelectList<Genre>()" class = "form-control"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Patient.Cellphone" class="control-label"></label>

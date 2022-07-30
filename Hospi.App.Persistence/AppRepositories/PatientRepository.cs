@@ -76,7 +76,6 @@ namespace Hospi.App.Persistence.AppRepositories
             var foundPatient = await _appContext.Patients.FirstOrDefaultAsync(p => p.Id == patientId);
             if (foundPatient != null)
             {
-
                 var addedRelative = await _appContext.Relatives.AddAsync(relative);
 
                 await _appContext.SaveChangesAsync();
@@ -107,6 +106,27 @@ namespace Hospi.App.Persistence.AppRepositories
             }
             return null;
         }
+        public async Task<VitalSign> AssignVitalSign(int patientId, VitalSign vitalSign)
+        {
+            var foundPatient = await _appContext.Patients
+            .Include( p => p.VitalSigns)
+            .FirstOrDefaultAsync(p => p.Id == patientId);
+            if (foundPatient != null)
+            {
+                var addedVitalSign = await _appContext.VitalSigns.AddAsync(vitalSign);
+
+                await _appContext.SaveChangesAsync();
+
+                if (addedVitalSign != null)
+                {
+                    foundPatient.VitalSigns.Add(addedVitalSign.Entity);
+                    await _appContext.SaveChangesAsync();
+                    return addedVitalSign.Entity;
+                }
+                return null;
+            }
+            return null;
+        }
         public async Task<Patient> Get(Expression<Func<Patient, bool>> predicate, CancellationToken cancellationToken = default)
         {
             return await _appContext.Patients
@@ -124,5 +144,6 @@ namespace Hospi.App.Persistence.AppRepositories
             patients = patients.Where(s => s.Id == Id);
             return await patients.ToListAsync();
         }
+
     }
 }

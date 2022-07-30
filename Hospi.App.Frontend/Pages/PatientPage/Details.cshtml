@@ -81,22 +81,55 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Patient.Relative)
         </dt>
-        @if (@Model.Patient.Relative != null)
-        {
-            <a asp-page="../RelativePage/Details" asp-route-id="@Model.Patient.Relative.Id" class="text-info">
-                <dd class="col-sm-10">
+        <dd class="col-sm-10">
+            @if (@Model.Patient.Relative != null)
+            {
+                <a asp-page="../RelativePage/Details" asp-route-id="@Model.Patient.Relative.Id" class="text-info">
                     @Html.DisplayFor(model => model.Patient.Relative.Name)
                     @Html.DisplayFor(model => model.Patient.Relative.Surname)
-                </dd>
-            </a>
-        }
-        else
-        {
-            <dd class="col-sm-10">
+                </a>
+            }
+            else
+            {
                 @Html.DisplayFor(model => model.Patient.Relative.Name)
                 @Html.DisplayFor(model => model.Patient.Relative.Surname)
-            </dd>
-        }
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patient.VitalSigns)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Patient.VitalSigns.ElementAt(0).Sign)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Patient.VitalSigns.ElementAt(0).Value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Patient.VitalSigns.ElementAt(0).DateTime)
+                    </th>
+                    <th>
+                        <a class="btn btn-outline-primary" asp-page="../PatientPage/VitalSignsPage/Create" asp-route-id="@Model.Patient.Id">Registrar signos vitales</a>
+                    </th>
+                </tr>
+                @foreach (var item in @Model.Patient.VitalSigns)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sign)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTime)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>

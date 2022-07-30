@@ -1,5 +1,5 @@
 @page
-@model Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns.IndexModel
+@model Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Sign)
             </td>
             <td>
-                <a class="btn btn-outline-warning" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
