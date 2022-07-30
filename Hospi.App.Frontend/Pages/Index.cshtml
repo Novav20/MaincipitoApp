@@ -10,3 +10,19 @@
         <h5 style="font-size: 2rem; opacity: 1; color: grey; font-style: italic; margin: 25px;">"Lo mejor de la salud en tu dispositivo"</h5>
     </div>
 </div>
+@if (User.Identity.IsAuthenticated)
+{
+    <table class="">
+        @foreach (var claim in User.Claims)
+        {
+            <tr>
+                <td>
+                    @claim.Type
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        }
+    </table>
+}
