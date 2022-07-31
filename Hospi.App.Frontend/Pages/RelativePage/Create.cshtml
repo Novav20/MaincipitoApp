@@ -2,7 +2,7 @@
 @model Hospi.App.Frontend.Pages.RelativePage.CreateModel
 
 @{
-    ViewData["Title"] = "Registrar Familiar";
+    ViewData["Title"] = "Asignar Familiar";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -45,14 +45,10 @@
                 <span asp-validation-for="Relative.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Registrar" class="btn btn-primary" aso-page-handler="Return"/>
+                <input type="submit" value="Asignar" class="btn btn-primary" aso-page-handler="Return"/>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a class="btn btn-secondary" asp-page="Index">Volver al listado de familiares</a>
 </div>
 
 @section Scripts {

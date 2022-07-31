@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
+namespace Hospi.App.Frontend.Pages.HistoryPage
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
             _context = context;
         }
 
-        public IList<VitalSign> VitalSign { get;set; }
+        public IList<History> History { get;set; }
 
         public async Task OnGetAsync()
         {
-            VitalSign = await _context.VitalSigns.ToListAsync();
+            History = await _context.Histories.ToListAsync();
         }
     }
 }

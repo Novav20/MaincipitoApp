@@ -25,10 +25,19 @@ namespace Hospi.App.Frontend.Pages.PatientPage
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
-        public SelectList Names { get; set; }
         public async Task OnGetAsync()
         {
-            Patients = await patientRepository.GetAllPatientsOrByName(SearchString);
+            try
+            {
+                Patients = await patientRepository.GetAllOrFilterPatients(int.Parse(SearchString));
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException || ex is ArgumentNullException)
+                {
+                    Patients = await patientRepository.GetAllOrFilterPatients(SearchString);
+                }
+            }
         }
     }
 }

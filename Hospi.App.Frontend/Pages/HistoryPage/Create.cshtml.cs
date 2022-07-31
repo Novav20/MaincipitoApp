@@ -7,29 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
-namespace Hospi.App.Frontend.Pages.RelativePage
+namespace Hospi.App.Frontend.Pages.HistoryPage
 {
     public class CreateModel : PageModel
     {
-        private readonly IRelativeRepository relativeRepository;
         private readonly IPatientRepository patientRepository;
 
         public CreateModel(IServiceProvider serviceProvider)
         {
-            this.relativeRepository = new RelativeRepository(
-                new MyAppContext(serviceProvider
-                .GetRequiredService<DbContextOptions<MyAppContext>>()));
             this.patientRepository = new PatientRepository(
                 new MyAppContext(serviceProvider
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
-        [BindProperty]
-        public Relative Relative { get; set; }
-        public Patient Patient { get; set; }
-
         public async Task<IActionResult> OnGet(int? id)
         {
             if (id == null)
@@ -45,6 +37,10 @@ namespace Hospi.App.Frontend.Pages.RelativePage
             return Page();
         }
 
+        [BindProperty]
+        public History History { get; set; }
+        public Patient Patient { get; set; }
+
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int id)
@@ -53,11 +49,10 @@ namespace Hospi.App.Frontend.Pages.RelativePage
             {
                 return Page();
             }
-            Relative = await patientRepository.AssignRelative(id, Relative);
 
-            //Patient = await patientRepository.Get(id);
-            
-            return RedirectToPage("../PatientPage/Details", new{id = id});
+            History = await patientRepository.AssignHistory(id, History);
+
+            return RedirectToPage("./Details",new {id = History.Id});
         }
     }
 }

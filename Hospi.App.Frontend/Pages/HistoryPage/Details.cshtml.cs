@@ -9,20 +9,27 @@ using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Hospi.App.Frontend.Pages.PatientPage
+namespace Hospi.App.Frontend.Pages.HistoryPage
 {
     public class DetailsModel : PageModel
     {
+        private readonly IHistoryRepository historyRepository;
         private readonly IPatientRepository patientRepository;
+
         public DetailsModel(IServiceProvider serviceProvider)
         {
+            this.historyRepository = new HistoryRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
             this.patientRepository = new PatientRepository(
                 new MyAppContext(serviceProvider
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
-
-        public Patient Patient { get; set; }
-        [BindProperty(Name ="id", SupportsGet =true)]
+        [BindProperty]
+        public History History { get; set; }
+        public Patient Patient {get;set;}
+        
+        [BindProperty(Name = "id", SupportsGet = true)]
         public int id { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,10 +37,15 @@ namespace Hospi.App.Frontend.Pages.PatientPage
             {
                 return NotFound();
             }
-            Patient = await patientRepository.Get(id);
 
+            History = await historyRepository.Get(id);
 
-            
+            Patient = await patientRepository.Get(p => p.History.Id == id);
+
+            if (History == null)
+            {
+                return NotFound();
+            }
             return Page();
         }
     }

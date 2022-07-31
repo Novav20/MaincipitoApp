@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.RecordVitalSigns
+namespace Hospi.App.Frontend.Pages.VitalSignsPage
 {
     public class EditModel : PageModel
     {

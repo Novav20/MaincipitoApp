@@ -12,7 +12,8 @@ namespace Hospi.App.Persistence.AppRepositories
         History Add(History history);
         void Update(History history);
         void Delete(History history);
-        History Get(int? historyId);
-        Task<IList<History>> GetAllHistoriesOrByDiagnosis(string searchString=null);
+        Task<History> Get(int? historyId);
+        Task<IList<History>> GetAllHistories();
+        Task<CareSuggestion> AssignCareSuggestion(int historyId, CareSuggestion careSuggestion); 
     }
 }

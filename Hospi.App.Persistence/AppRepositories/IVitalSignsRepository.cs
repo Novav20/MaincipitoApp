@@ -13,6 +13,6 @@ namespace Hospi.App.Persistence.AppRepositories
         void Update(VitalSign vitalSign);
         void Delete(VitalSign vitalSign);
         VitalSign Get(int? vitalSignId);
-        Task<IList<VitalSign>> GetAllVitalSignsOrByType(Sign? sign=null);
+        Task<IList<VitalSign>> GetAllOrByTypeVitalSigns(Sign? sign=null);
     }
 }

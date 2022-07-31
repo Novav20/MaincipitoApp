@@ -11,6 +11,7 @@ namespace Hospi.App.Domain.Entities
         public int Id { get; set; }
 
         [Display(Name = "Fecha")]
+        [Required(ErrorMessage ="Debe proporcionar la fecha y hora de la medición")]
         public DateTime DateTime { get; set; }
         
         [Required(ErrorMessage = "Debe proporcionar un valor"), Display(Name = "Valor")]

@@ -8,25 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Hospi.App.Frontend.Pages.RelativePage
+namespace Hospi.App.Frontend.Pages.HistoryPage.CareSuggestionPage
 {
     public class EditModel : PageModel
     {
-        private readonly IRelativeRepository relativeRepository;
-        private readonly IPatientRepository patientRepository;
+        private readonly Hospi.App.Persistence.AppRepositories.MyAppContext _context;
 
-        public EditModel(IServiceProvider serviceProvider)
+        public EditModel(Hospi.App.Persistence.AppRepositories.MyAppContext context)
         {
-            this.relativeRepository = new RelativeRepository(new MyAppContext(serviceProvider.GetRequiredService<DbContextOptions<MyAppContext>>()));
-            this.patientRepository = new PatientRepository(new MyAppContext(serviceProvider.GetRequiredService<DbContextOptions<MyAppContext>>()));
+            _context = context;
         }
 
         [BindProperty]
-        public Relative Relative { get; set; }
-
-        public Patient Patient {get;set;}
+        public CareSuggestion CareSuggestion { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,9 +30,9 @@ namespace Hospi.App.Frontend.Pages.RelativePage
                 return NotFound();
             }
 
-            Relative = await relativeRepository.Get(id);
+            CareSuggestion = await _context.CareSuggestions.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Relative == null)
+            if (CareSuggestion == null)
             {
                 return NotFound();
             }
@@ -46,21 +41,22 @@ namespace Hospi.App.Frontend.Pages.RelativePage
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPost(int id)
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            _context.Attach(CareSuggestion).State = EntityState.Modified;
+
             try
             {
-                relativeRepository.Update(Relative);
-
-                Patient = await patientRepository.Get(p => p.Relative.Id == id);
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!relativeRepository.RelativeExists(Relative.Id))
+                if (!CareSuggestionExists(CareSuggestion.Id))
                 {
                     return NotFound();
                 }
@@ -69,7 +65,13 @@ namespace Hospi.App.Frontend.Pages.RelativePage
                     throw;
                 }
             }
-            return RedirectToPage("../PatientPage/Details", new{id = Patient.Id});
+
+            return RedirectToPage("./Index");
+        }
+
+        private bool CareSuggestionExists(int id)
+        {
+            return _context.CareSuggestions.Any(e => e.Id == id);
         }
     }
 }

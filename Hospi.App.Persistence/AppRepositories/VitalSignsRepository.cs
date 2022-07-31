@@ -39,18 +39,14 @@ namespace Hospi.App.Persistence.AppRepositories
             _appContext.Attach(vitalSign).State = EntityState.Modified;
             _appContext.SaveChanges();
         }
-        public async Task<IList<VitalSign>> GetAllVitalSignsOrByType(Sign? sign = null)
+        public async Task<IList<VitalSign>> GetAllOrByTypeVitalSigns(Sign? sign = null)
         {
-            var vitalSigns = GetIQVitalSigns();
+            var vitalSigns = from m in _appContext.VitalSigns select m;
             if (sign != null)
             {
                 vitalSigns = vitalSigns.Where(s => s.Sign.Equals(sign));
             }
             return await vitalSigns.ToListAsync();
-        }
-        private IQueryable<VitalSign> GetIQVitalSigns()
-        {
-            return from m in _appContext.VitalSigns select m;
         }
     }
 }

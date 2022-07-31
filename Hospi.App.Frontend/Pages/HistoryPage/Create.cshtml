@@ -1,0 +1,37 @@
+@page "{id:int?}"
+@model Hospi.App.Frontend.Pages.HistoryPage.CreateModel
+
+@{
+    ViewData["Title"] = "Asignar historia clínica";
+}
+
+<h1>@ViewData["Title"] </h1>
+
+<h4>Paciente: @Model.Patient.Name @Model.Patient.Surname</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="History.Diagnosis" class="control-label"></label>
+                <input asp-for="History.Diagnosis" class="form-control" />
+                <span asp-validation-for="History.Diagnosis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="History.Enviroment" class="control-label"></label>
+                <input asp-for="History.Enviroment" class="form-control" />
+                <span asp-validation-for="History.Enviroment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Asignar" class="btn btn-primary" />
+                <a asp-page="../PatientPage/Details" asp-route-id="@Model.Patient.Id"
+                    class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

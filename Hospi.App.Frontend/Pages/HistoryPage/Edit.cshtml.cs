@@ -5,40 +5,44 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Hospi.App.Frontend.Pages.RelativePage
+namespace Hospi.App.Frontend.Pages.HistoryPage
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
-        private readonly IRelativeRepository relativeRepository;
         private readonly IPatientRepository patientRepository;
+        private readonly IHistoryRepository historyRepository;
 
-        public CreateModel(IServiceProvider serviceProvider)
+        public EditModel(IServiceProvider serviceProvider)
         {
-            this.relativeRepository = new RelativeRepository(
-                new MyAppContext(serviceProvider
-                .GetRequiredService<DbContextOptions<MyAppContext>>()));
             this.patientRepository = new PatientRepository(
                 new MyAppContext(serviceProvider
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
+            this.historyRepository = new HistoryRepository(
+                new MyAppContext(serviceProvider
+                .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
+
         [BindProperty]
-        public Relative Relative { get; set; }
+        public History History { get; set; }
         public Patient Patient { get; set; }
 
-        public async Task<IActionResult> OnGet(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            Patient = await patientRepository.Get(id);
 
-            if (Patient == null)
+            History = await historyRepository.Get(id);
+
+            Patient = await patientRepository.Get(p => p.History.Id == id);
+
+            if (History == null)
             {
                 return NotFound();
             }
@@ -47,17 +51,28 @@ namespace Hospi.App.Frontend.Pages.RelativePage
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync(int id)
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            Relative = await patientRepository.AssignRelative(id, Relative);
-
-            //Patient = await patientRepository.Get(id);
-            
-            return RedirectToPage("../PatientPage/Details", new{id = id});
+            try
+            {
+                historyRepository.Update(History);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!historyRepository.HistoryExists(History.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToPage("./Details", new {id = History.Id});
         }
     }
 }
