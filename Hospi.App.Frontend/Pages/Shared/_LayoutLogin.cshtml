@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,15 +12,30 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a style="font-family: Lucida Handwriting, cursive; font-size: large;" class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/img/content_hub-happy_drivers-heart_icon.svg" alt="" width="50" height="50" style="margin-right: 5px;">Hospitalizacion en Casa</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a style="font-family: Lucida Handwriting, cursive; font-size: large;" class="navbar-brand" asp-area=""
+                    asp-page="/Index"><img src="~/img/content_hub-happy_drivers-heart_icon.svg" alt="" width="50"
+                        height="50" style="margin-right: 5px;">Hospitalizacion en Casa</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li>
+                            <a style="font-family: Verdana, sans-serif; font-style: italic; margin-right: 10px;" class="btn btn-light"
+                                asp-area="identity" asp-page="/Account/Login" asp-route-returnUrl="/">Login</a>
+                        </li>
+                        <li>
+                            <a style="font-family: Verdana, sans-serif; font-style: italic margin-left: 10px;;" class="btn btn-light"
+                                asp-area="identity" asp-page="/Account/Register" asp-route-returnUrl="/">Register</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -57,4 +73,5 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>

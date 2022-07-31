@@ -36,10 +36,7 @@
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a class="btn btn-outline-secondary" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
                 </div>
             </form>
@@ -47,8 +44,13 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>Use another service to log in.</h4>
+            <h4 >Hospitalizacion en Casa</h4>
             <hr />
+            <div class="center">
+            <img src="~/img/content_hub-happy_drivers-heart_icon.svg" alt="" width="250" height="250">
+            </div>
+            <h5 style="font-size: 2rem; opacity: 1; color: grey; font-style: italic; margin: 25px;">"Lo mejor de la salud en la Web"</h5>
+            <!--
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
@@ -72,7 +74,7 @@
                         </div>
                     </form>
                 }
-            }
+            }-->
         </section>
     </div>
 </div>
