@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Hospi.App.Domain.Entities;
 using Hospi.App.Persistence.AppRepositories;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
+namespace Hospi.App.Frontend.Pages.HistoryPage
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
         }
 
         [BindProperty]
-        public VitalSign VitalSign { get; set; }
+        public History History { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
                 return NotFound();
             }
 
-            VitalSign = await _context.VitalSigns.FirstOrDefaultAsync(m => m.Id == id);
+            History = await _context.Histories.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (VitalSign == null)
+            if (History == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
                 return NotFound();
             }
 
-            VitalSign = await _context.VitalSigns.FindAsync(id);
+            History = await _context.Histories.FindAsync(id);
 
-            if (VitalSign != null)
+            if (History != null)
             {
-                _context.VitalSigns.Remove(VitalSign);
+                _context.Histories.Remove(History);
                 await _context.SaveChangesAsync();
             }
 

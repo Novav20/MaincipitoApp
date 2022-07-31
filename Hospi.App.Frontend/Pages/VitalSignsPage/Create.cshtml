@@ -1,0 +1,45 @@
+@page "{id:int?}"
+@model Hospi.App.Frontend.Pages.VitalSignsPage.CreateModel
+@using Hospi.App.Domain.Entities
+@{
+    ViewData["Title"] = "Registrar signo vital";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Paciente: @Model.Patient.Name @Model.Patient.Surname</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VitalSign.Sign" class="control-label"></label>
+                @Html.DropDownList("VitalSign.Sign",Html.GetEnumSelectList<Sign>(),"Seleccionar signo vital",new {@class = "form-control"})
+                <span asp-validation-for="VitalSign.Sign" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitalSign.Value" class="control-label"></label>
+                <input asp-for="VitalSign.Value" class="form-control" />
+                <span asp-validation-for="VitalSign.Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitalSign.DateTime" class="control-label"></label>
+                <input asp-for="VitalSign.DateTime" class="form-control" />
+                <span asp-validation-for="VitalSign.DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" /> |
+                    <a asp-page="../PatientPage/Details" asp-route-id="@Model.Patient.Id" class="btn btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

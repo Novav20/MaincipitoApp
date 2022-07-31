@@ -111,7 +111,19 @@
                         @Html.DisplayNameFor(model => model.Patient.VitalSigns.ElementAt(0).DateTime)
                     </th>
                     <th>
-                        <a class="btn btn-outline-primary" asp-page="../PatientPage/VitalSignsPage/Create" asp-route-id="@Model.Patient.Id">Registrar signos vitales</a>
+                        <a class="btn btn-outline-primary" asp-page="../VitalSignsPage/Create"
+                            asp-route-id="@Model.Patient.Id">Registrar signo vital</a>|
+                        @if (@Model.Patient.History != null)
+                        {
+                            <a class="btn btn-outline-info" asp-page="../HistoryPage/Details"
+                            asp-route-id="@Model.Patient.History.Id">Historia clínica</a>
+                        }
+                        else
+                        {
+                            @* TODO: Cambiar esto, depende del discriminador del usuario (paciente o medico)*@
+                            <a class="btn btn-outline-info" asp-page="../HistoryPage/Create"
+                            asp-route-id="@Model.Patient.Id">Asignar historia clínica</a>
+                        }
                     </th>
                 </tr>
                 @foreach (var item in @Model.Patient.VitalSigns)

@@ -10,7 +10,7 @@ using Hospi.App.Persistence.AppRepositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
+namespace Hospi.App.Frontend.Pages.VitalSignsPage
 {
     public class CreateModel : PageModel
     {
@@ -23,13 +23,16 @@ namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
 
-        public IActionResult OnGet()
+        [BindProperty]
+        public VitalSign VitalSign { get; set; }
+        public Patient Patient { get; set; }
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            Patient = await patientRepository.Get(id);
             return Page();
         }
 
-        [BindProperty]
-        public VitalSign VitalSign { get; set; }
+
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(int id)
@@ -40,7 +43,7 @@ namespace Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage
             }
             VitalSign = await patientRepository.AssignVitalSign(id,VitalSign);
 
-            return RedirectToPage("../Details", new {id = id});
+            return RedirectToPage("../PatientPage/Details", new {id = id});
         }
     }
 }

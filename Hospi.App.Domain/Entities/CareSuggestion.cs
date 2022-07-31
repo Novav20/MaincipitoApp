@@ -11,11 +11,12 @@ namespace Hospi.App.Domain.Entities
         public int Id { get; set; }
 
         [Display(Name ="Fecha de la sugerencia")]
+        [DataType(DataType.Date)]
         public DateTime DateTime { get; set; }
 
+        [Required(ErrorMessage ="Se requiere una descripción de la sugerencia")]
         [StringLength(200)]
         [Display(Name ="Descripción")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         public string Description { get; set; }
     }
 }

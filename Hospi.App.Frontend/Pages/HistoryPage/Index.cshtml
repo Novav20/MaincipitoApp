@@ -1,5 +1,5 @@
 @page
-@model Hospi.App.Frontend.Pages.PatientPage.VitalSignsPage.IndexModel
+@model Hospi.App.Frontend.Pages.HistoryPage.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,28 +14,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.VitalSign[0].DateTime)
+                @Html.DisplayNameFor(model => model.History[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VitalSign[0].Value)
+                @Html.DisplayNameFor(model => model.History[0].Diagnosis)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VitalSign[0].Sign)
+                @Html.DisplayNameFor(model => model.History[0].Enviroment)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.VitalSign) {
+@foreach (var item in Model.History) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Value)
+                @Html.DisplayFor(modelItem => item.Diagnosis)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sign)
+                @Html.DisplayFor(modelItem => item.Enviroment)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

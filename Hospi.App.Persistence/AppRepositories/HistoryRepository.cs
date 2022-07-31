@@ -19,39 +19,54 @@ namespace Hospi.App.Persistence.AppRepositories
         {
             return _appContext.Histories.Any(e => e.Id == id);
         }
-        public History Add(History relative)
+        public History Add(History history)
         {
-            var addedHistory = _appContext.Histories.Add(relative);
+            var addedHistory = _appContext.Histories.Add(history);
             _appContext.SaveChanges();
             return addedHistory.Entity;
         }
-        public void Delete(History relative)
+        public void Delete(History history)
         {
-            _appContext.Histories.Remove(relative);
+            _appContext.Histories.Remove(history);
             _appContext.SaveChanges();
         }
-        public History Get(int? relativeId)
+        public async Task<History> Get(int? historyId)
         {
-            return _appContext.Histories.FirstOrDefault(p => p.Id == relativeId);
+            return await _appContext.Histories
+            .Include(h => h.Suggestions)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(h => h.Id == historyId);
         }
-        public void Update(History relative)
+        public void Update(History history)
         {
-            //var foundHistory = _appContext.Histories.FirstOrDefault(p => p.Id == relative.Id);
-            _appContext.Attach(relative).State = EntityState.Modified;
+            //var foundHistory = _appContext.Histories.FirstOrDefault(p => p.Id == history.Id);
+            _appContext.Attach(history).State = EntityState.Modified;
             _appContext.SaveChanges();
         }
-        public async Task<IList<History>> GetAllHistoriesOrByDiagnosis(string searchString = null)
+        public async Task<IList<History>> GetAllHistories()
         {
-            var histories = GetIQHistories();
-            if (!string.IsNullOrEmpty(searchString))
+            return await _appContext.Histories.ToListAsync();
+        }
+        public async Task<CareSuggestion> AssignCareSuggestion(int historyId, CareSuggestion careSuggestion)
+        {
+            var foundHistory = await _appContext.Histories
+            .Include(h => h.Suggestions)
+            .FirstOrDefaultAsync(p => p.Id == historyId);
+            if (foundHistory != null)
             {
-                histories = histories.Where(s => s.Diagnosis.Contains(searchString));
+                var addedCareSuggestion = await _appContext.CareSuggestions.AddAsync(careSuggestion);
+                addedCareSuggestion.Entity.DateTime = DateTime.Now;
+
+                await _appContext.SaveChangesAsync();
+
+                if (addedCareSuggestion != null)
+                {
+                    foundHistory.Suggestions.Add(addedCareSuggestion.Entity);
+                    await _appContext.SaveChangesAsync();
+                    return addedCareSuggestion.Entity;
+                }
             }
-            return await histories.ToListAsync();
-        }
-        private IQueryable<History> GetIQHistories()
-        {
-            return from m in _appContext.Histories select m;
+            return null;
         }
     }
 }

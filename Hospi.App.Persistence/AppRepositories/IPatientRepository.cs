@@ -21,7 +21,7 @@ namespace Hospi.App.Persistence.AppRepositories
         Task<IList<Patient>> GetAllOrFilterPatients(int Id);
         Doctor AssignDoctor(int patientId, int doctorId);
         Task<Relative> AssignRelative(int patientId, Relative relative);
-        History AssignHistory(int patientId, int historyId);
+        Task<History> AssignHistory(int patientId, History history);
         Task<VitalSign> AssignVitalSign (int patientId, VitalSign vitalSign);
 
     }
