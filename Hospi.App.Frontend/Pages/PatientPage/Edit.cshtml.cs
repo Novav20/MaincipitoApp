@@ -63,7 +63,7 @@ namespace Hospi.App.Frontend.Pages.PatientPage
                     throw;
                 }
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Details", new {id = Patient.Id});
         }
     }
 }

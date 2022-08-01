@@ -20,7 +20,6 @@ namespace Hospi.App.Frontend.Pages.PatientPage
                 new MyAppContext(serviceProvider
                 .GetRequiredService<DbContextOptions<MyAppContext>>()));
         }
-
         public Patient Patient { get; set; }
         [BindProperty(Name ="id", SupportsGet =true)]
         public int id { get; set; }
@@ -31,9 +30,6 @@ namespace Hospi.App.Frontend.Pages.PatientPage
                 return NotFound();
             }
             Patient = await patientRepository.Get(id);
-
-
-            
             return Page();
         }
     }

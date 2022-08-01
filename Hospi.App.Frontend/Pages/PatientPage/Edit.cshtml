@@ -10,83 +10,71 @@
 <h4>@Model.Patient.Name @Model.Patient.Surname</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10 mx-auto">
         <form method="post">
-            <div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Patient.Id" />
-            <div class="form-group">
-                <label asp-for="Patient.Name" class="control-label"></label>
-                <input asp-for="Patient.Name" class="form-control" />
-                <span asp-validation-for="Patient.Name" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label asp-for="Patient.Name" class="control-label"></label>
+                    <input asp-for="Patient.Name" class="form-control" />
+                    <span asp-validation-for="Patient.Name" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6">
+                    <label asp-for="Patient.Surname" class="control-label"></label>
+                    <input asp-for="Patient.Surname" class="form-control" />
+                    <span asp-validation-for="Patient.Surname" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Patient.Surname" class="control-label"></label>
-                <input asp-for="Patient.Surname" class="form-control" />
-                <span asp-validation-for="Patient.Surname" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label asp-for="Patient.Genre" class="control-label"></label>
+                    @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccionar género",new {@class = "form-control"})  
+                    </div>
+                <div class="col-sm-6">
+                    <label asp-for="Patient.Cellphone" class="control-label"></label>
+                    <input asp-for="Patient.Cellphone" class="form-control" />
+                    <span asp-validation-for="Patient.Cellphone" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Patient.Genre" class="control-label"></label>
-                @Html.DropDownList("Patient.Genre",Html.GetEnumSelectList<Hospi.App.Domain.Entities.Genre>(),"Seleccionar género",new {@class = "form-control"})
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label asp-for="Patient.DateOfBirth" class="control-label"></label>
+                    <input asp-for="Patient.DateOfBirth" class="form-control" />
+                    <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6">
+                    <label asp-for="Patient.Address" class="control-label"></label>
+                    <input asp-for="Patient.Address" class="form-control" />
+                    <span asp-validation-for="Patient.Address" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Patient.Cellphone" class="control-label"></label>
-                <input asp-for="Patient.Cellphone" class="form-control" />
-                <span asp-validation-for="Patient.Cellphone" class="text-danger"></span>
+            <div class="form-grpup row">
+                <div class="col-sm-6">
+                    <label asp-for="Patient.City" class="control-label"></label>
+                    <input asp-for="Patient.City" class="form-control" />
+                    <span asp-validation-for="Patient.City" class="text-danger"></span>
+                </div>
+                <div class="col-sm-3">
+                    <label asp-for="Patient.Latitude" class="control-label"></label>
+                    <input asp-for="Patient.Latitude" class="form-control" />
+                    <span asp-validation-for="Patient.Latitude" class="text-danger"></span>
+                </div>
+                <div class="col-sm-3">
+                    <label asp-for="Patient.Longitude" class="control-label"></label>
+                    <input asp-for="Patient.Longitude" class="form-control" />
+                    <span asp-validation-for="Patient.Longitude" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Patient.DateOfBirth" class="control-label"></label>
-                <input asp-for="Patient.DateOfBirth" class="form-control" />
-                <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+            <br>
+            <div class="form-group px-4 float-right">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" /> |
+                <a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@Model.Patient.Id">Cancelar</a>
             </div>
-            <div class="form-group">
-                <label asp-for="Patient.Address" class="control-label"></label>
-                <input asp-for="Patient.Address" class="form-control" />
-                <span asp-validation-for="Patient.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Patient.City" class="control-label"></label>
-                <input asp-for="Patient.City" class="form-control" />
-                <span asp-validation-for="Patient.City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Patient.Latitude" class="control-label"></label>
-                <input asp-for="Patient.Latitude" class="form-control" />
-                <span asp-validation-for="Patient.Latitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Patient.Longitude" class="control-label"></label>
-                <input asp-for="Patient.Longitude" class="form-control" />
-                <span asp-validation-for="Patient.Longitude" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="container">
-                <p>Historia clinica</p>
-                <input class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
-            </div>   
         </form>
+
     </div>
-</div>
-<div>
-    <a class="btn btn-primary" asp-page="./AssignDoctor/AssignDoctor" asp-route-id="@Model.Patient.Id">Asignar médico</a>
-</div>
-@if (@Model.Patient.Relative == null)
-{
-    <div>
-        <a style="margin-top: 20px;"class="btn btn-primary" asp-page="../RelativePage/Create" asp-route-id="@Model.Patient.Id">Asignar Familiar</a>
-    </div>
-}
-else
-{
-    <div>
-        <a style="margin-top: 20px;"class="btn btn-primary" asp-page="../RelativePage/Edit" asp-route-id="@Model.Patient.Relative.Id">Editar Familiar Asignado</a>
-    </div>
-}
-<div>
-    <a style="margin-top: 20px;" class="btn btn-secondary" asp-page="./Index">Volver al listado de pacientes</a>
+
 </div>
 
 @section Scripts {
