@@ -12,6 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hospi.App.Domain\Hospi.App.Domain.csproj" />
+    <ProjectReference Include="..\Maincipito.Domain\Maincipito.Domain.csproj" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\Hospi.App.Domain\Hospi.App.Domain.csproj" />
-    <ProjectReference Include="..\Hospi.App.Persistence\Hospi.App.Persistence.csproj" />
+    <ProjectReference Include="..\Maincipito.Domain\Maincipito.Domain.csproj" />
+    <ProjectReference Include="..\Maincipito.Persistence\Maincipito.Persistence.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
