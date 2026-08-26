@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
     <ProjectReference Include="..\Maincipito.Domain\Maincipito.Domain.csproj" />
@@ -7,6 +7,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>81125e58-bf2c-4c36-9552-070e5bc19fd9</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Compat.System.Diagnostics.CodeAnalysis" Version="0.1.1" />

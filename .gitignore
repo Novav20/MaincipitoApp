@@ -61,3 +61,5 @@ ehthumbs.db
 
 ## Documentation Artifacts (Opcional si no deseas subir el árbol generado)
 *-structure.md
+# Environment variables
+.env

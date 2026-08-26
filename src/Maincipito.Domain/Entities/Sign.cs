@@ -1,25 +1,24 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Hospi.App.Domain.Entities
+namespace Maincipito.Domain.Entities;
+
+public enum Sign
 {
-    public enum Sign
-    {
-        [Display(Name="porcentaje de oxígeno en la sangre")]
-        OXIMETRY,
+    [Display(Name = "Porcentaje de oxígeno en la sangre (Oximetría)")]
+    Oximetry,
 
-        [Display(Name="Frecuencia respiratoria")]
-        RESPIRATORY_RATE,
+    [Display(Name = "Frecuencia respiratoria")]
+    RespiratoryRate,
 
-        [Display(Name="Frecuencia Cardiáca")]
-        HEART_RATE,
+    [Display(Name = "Frecuencia cardíaca")]
+    HeartRate,
 
-        [Display(Name="Temperatura Corporal")]
-        TEMPERATURE,
+    [Display(Name = "Temperatura corporal")]
+    Temperature,
 
-        [Display(Name="Tensión Arterial")]
-        BLOOD_PRESSURE,
+    [Display(Name = "Tensión arterial")]
+    BloodPressure,
 
-        [Display(Name="Glucosa en la sangre")]
-        BLOOD_GLUCOSE
-    }
+    [Display(Name = "Glucosa en la sangre")]
+    BloodGlucose
 }
