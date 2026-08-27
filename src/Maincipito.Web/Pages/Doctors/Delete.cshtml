@@ -1,0 +1,36 @@
+@page
+@model Maincipito.Web.Pages.Doctors.DeleteModel
+
+@{
+    ViewData["Title"] = "Borrar Médico";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h3 class="text-danger">¿Está seguro de que desea eliminar este registro?</h3>
+
+<div>
+    <h4>@Model.Doctor.Name @Model.Doctor.Surname</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Id)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Id)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Name)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Name)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Surname)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Surname)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.MedicalSpecialty)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.MedicalSpecialty)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Code)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Code)</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Doctor.Id" />
+        <input type="submit" value="Confirmar Eliminación" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
+    </form>
+</div>

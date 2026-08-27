@@ -1,0 +1,57 @@
+﻿@page "{id:int}"
+@model Maincipito.Web.Pages.Patients.AssignDoctor.AssignDoctorModel
+
+@{
+    ViewData["Title"] = "Asignar Médico";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+    <a class="btn btn-secondary" asp-page="/Patients/Details" asp-route-id="@Model.Patient.Id">Volver al paciente</a>
+</div>
+
+<div class="alert alert-info">
+    <strong>Paciente:</strong> @Model.Patient.Name @Model.Patient.Surname (ID: @Model.Patient.Id)
+</div>
+
+<h4 class="mt-4">Seleccione un médico de la lista:</h4>
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Código</th>
+            <th class="text-center">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model.Doctors.Count == 0)
+{
+    <tr>
+        <td colspan="5" class="text-center text-muted">No hay médicos registrados disponibles para asignar.</td>
+    </tr>
+}
+else
+{
+    @foreach (var item in Model.Doctors)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.MedicalSpecialty</td>
+            <td>@item.Code</td>
+            <td class="text-center">
+                <form method="post" class="d-inline">
+                    <input type="hidden" asp-for="PatientId" value="@Model.Patient.Id" />
+                    <input type="hidden" asp-for="DoctorId" value="@item.Id" />
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        <i class="fas fa-user-check"></i> Asignar
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

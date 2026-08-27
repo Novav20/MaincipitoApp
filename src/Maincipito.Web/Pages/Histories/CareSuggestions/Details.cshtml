@@ -1,0 +1,29 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Histories.CareSuggestions.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalles de la Sugerencia";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@Model.CareSuggestion.Id">Editar</a>
+        <a class="btn btn-secondary" asp-page="./Index">Volver al listado</a>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Sugerencia #@Model.CareSuggestion.Id</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Fecha de Creación</dt>
+            <dd class="col-sm-9">@Model.CareSuggestion.DateTime.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+            <dt class="col-sm-3">Descripción</dt>
+            <dd class="col-sm-9">@Model.CareSuggestion.Description</dd>
+        </dl>
+    </div>
+</div>

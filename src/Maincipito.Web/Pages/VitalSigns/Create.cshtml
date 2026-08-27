@@ -1,0 +1,61 @@
+@page "{patientId:int?}"
+@model Maincipito.Web.Pages.VitalSigns.CreateModel
+
+@{
+    ViewData["Title"] = "Registrar Signo Vital";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Patient is not null)
+{
+    <div class="alert alert-info">
+        <strong>Paciente:</strong> @Model.Patient.Name @Model.Patient.Surname (ID: @Model.Patient.Id)
+    </div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PatientId" />
+            
+            <div class="form-group">
+                <label asp-for="VitalSign.Sign" class="control-label"></label>
+                <select asp-for="VitalSign.Sign" asp-items="Html.GetEnumSelectList<Sign>()" class="form-control">
+                    <option value="">-- Seleccionar Signo Vital --</option>
+                </select>
+                <span asp-validation-for="VitalSign.Sign" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="VitalSign.Value" class="control-label"></label>
+                <input asp-for="VitalSign.Value" class="form-control" placeholder="Ej: 98, 120/80, 36.5" />
+                <span asp-validation-for="VitalSign.Value" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="VitalSign.DateTime" class="control-label"></label>
+                <input asp-for="VitalSign.DateTime" class="form-control" />
+                <span asp-validation-for="VitalSign.DateTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+                @if (Model.PatientId.HasValue)
+                {
+                    <a asp-page="/Patients/Details" asp-route-id="@Model.PatientId" class="btn btn-secondary">Volver al paciente</a>
+                }
+                else
+                {
+                    <a asp-page="./Index" class="btn btn-secondary">Volver al listado</a>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

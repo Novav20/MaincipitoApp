@@ -1,0 +1,26 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Histories.CareSuggestions.DeleteModel
+
+@{
+    ViewData["Title"] = "Borrar Sugerencia de Cuidado";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h3 class="text-danger">¿Está seguro de que desea eliminar esta sugerencia?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Fecha</dt>
+        <dd class="col-sm-9">@Model.CareSuggestion.DateTime.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.CareSuggestion.Description</dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CareSuggestion.Id" />
+        <input type="submit" value="Confirmar Eliminación" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
+    </form>
+</div>

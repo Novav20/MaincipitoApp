@@ -1,0 +1,59 @@
+@page
+@model Maincipito.Web.Pages.Doctors.DetailsModel
+
+@{
+    ViewData["Title"] = "Información del Médico";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@Model.Doctor.Name @Model.Doctor.Surname</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Id)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Id)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Name)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Name)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Surname)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Surname)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Cellphone)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Cellphone)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Gender)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Gender)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.MedicalSpecialty)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.MedicalSpecialty)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.Code)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Code)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Doctor.RethusRecord)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.RethusRecord)</dd>
+
+        <dt class="col-sm-3">Pacientes Asignados</dt>
+        <dd class="col-sm-9">
+            @if (Model.Doctor.Patients.Count == 0)
+            {
+                <span class="text-muted">No tiene pacientes asignados actualmente.</span>
+            }
+            else
+            {
+                <ul class="list-unstyled">
+                    @foreach (var patient in Model.Doctor.Patients)
+                    {
+                        <li><i class="fas fa-user-injured text-primary"></i> @patient.Name @patient.Surname (ID: @patient.Id)</li>
+                    }
+                </ul>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@Model.Doctor.Id">Editar</a> |
+    <a class="btn btn-secondary" asp-page="./Index">Volver al listado</a>
+</div>

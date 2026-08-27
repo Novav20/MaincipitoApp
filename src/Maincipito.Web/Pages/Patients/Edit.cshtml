@@ -1,0 +1,86 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Patients.EditModel
+
+@{
+    ViewData["Title"] = "Editar datos del paciente";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h4>@Model.Patient.Name @Model.Patient.Surname</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patient.Id" />
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.Name" class="control-label"></label>
+                    <input asp-for="Patient.Name" class="form-control" />
+                    <span asp-validation-for="Patient.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.Surname" class="control-label"></label>
+                    <input asp-for="Patient.Surname" class="form-control" />
+                    <span asp-validation-for="Patient.Surname" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.Gender" class="control-label"></label>
+                    <select asp-for="Patient.Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control">
+                        <option value="">-- Seleccionar Género --</option>
+                    </select>
+                    <span asp-validation-for="Patient.Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.Cellphone" class="control-label"></label>
+                    <input asp-for="Patient.Cellphone" class="form-control" />
+                    <span asp-validation-for="Patient.Cellphone" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.DateOfBirth" class="control-label"></label>
+                    <input asp-for="Patient.DateOfBirth" class="form-control" />
+                    <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.Address" class="control-label"></label>
+                    <input asp-for="Patient.Address" class="form-control" />
+                    <span asp-validation-for="Patient.Address" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Patient.City" class="control-label"></label>
+                    <input asp-for="Patient.City" class="form-control" />
+                    <span asp-validation-for="Patient.City" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Patient.Latitude" class="control-label"></label>
+                    <input asp-for="Patient.Latitude" class="form-control" />
+                    <span asp-validation-for="Patient.Latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Patient.Longitude" class="control-label"></label>
+                    <input asp-for="Patient.Longitude" class="form-control" />
+                    <span asp-validation-for="Patient.Longitude" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@Model.Patient.Id">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

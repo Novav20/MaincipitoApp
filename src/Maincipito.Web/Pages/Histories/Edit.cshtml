@@ -1,0 +1,42 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Histories.EditModel
+
+@{
+    ViewData["Title"] = "Editar Historia Clínica";
+}
+
+<h1>@ViewData["Title"]</h1>
+@if (Model.Patient is not null)
+{
+    <h4>Paciente: @Model.Patient.Name @Model.Patient.Surname</h4>
+}
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="History.Id" />
+            
+            <div class="form-group">
+                <label asp-for="History.Diagnosis" class="control-label"></label>
+                <textarea asp-for="History.Diagnosis" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="History.Diagnosis" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="History.Environment" class="control-label"></label>
+                <input asp-for="History.Environment" class="form-control" />
+                <span asp-validation-for="History.Environment" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                <a asp-page="./Details" asp-route-id="@Model.History.Id" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

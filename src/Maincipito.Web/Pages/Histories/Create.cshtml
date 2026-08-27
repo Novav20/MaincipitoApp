@@ -1,0 +1,53 @@
+@page "{patientId:int?}"
+@model Maincipito.Web.Pages.Histories.CreateModel
+
+@{
+    ViewData["Title"] = Model.Patient is not null ? "Asignar Historia Clínica a Paciente" : "Crear Historia Clínica";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Patient is not null)
+{
+    <div class="alert alert-info">
+        <strong>Paciente:</strong> @Model.Patient.Name @Model.Patient.Surname (ID: @Model.Patient.Id)
+    </div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PatientId" />
+            
+            <div class="form-group">
+                <label asp-for="History.Diagnosis" class="control-label"></label>
+                <textarea asp-for="History.Diagnosis" class="form-control" rows="3" placeholder="Detalle el diagnóstico médico..."></textarea>
+                <span asp-validation-for="History.Diagnosis" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="History.Environment" class="control-label"></label>
+                <input asp-for="History.Environment" class="form-control" placeholder="Condiciones del entorno del paciente..." />
+                <span asp-validation-for="History.Environment" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Guardar Historia" class="btn btn-primary" />
+                @if (Model.PatientId.HasValue)
+                {
+                    <a asp-page="/Patients/Details" asp-route-id="@Model.PatientId" class="btn btn-secondary">Volver al paciente</a>
+                }
+                else
+                {
+                    <a asp-page="./Index" class="btn btn-secondary">Volver al listado</a>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

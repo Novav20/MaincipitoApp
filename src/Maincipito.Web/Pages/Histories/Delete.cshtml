@@ -1,0 +1,29 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Histories.DeleteModel
+
+@{
+    ViewData["Title"] = "Borrar Historia Clínica";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h3 class="text-danger">¿Está seguro de que desea eliminar esta historia clínica?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.History.Id)</dt>
+        <dd class="col-sm-9">@Model.History.Id</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.History.Diagnosis)</dt>
+        <dd class="col-sm-9">@Model.History.Diagnosis</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.History.Environment)</dt>
+        <dd class="col-sm-9">@Model.History.Environment</dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="History.Id" />
+        <input type="submit" value="Confirmar Eliminación" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
+    </form>
+</div>

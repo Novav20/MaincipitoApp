@@ -1,0 +1,63 @@
+@page
+@model Maincipito.Web.Pages.VitalSigns.IndexModel
+
+@{
+    ViewData["Title"] = "Historial de Signos Vitales";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+    <a class="btn btn-primary" asp-page="Create">
+        <i class="fas fa-plus-circle"></i> Registrar nuevo signo vital
+    </a>
+</div>
+
+<form method="get" class="mb-4">
+    <div class="input-group">
+        <select asp-for="SignFilter" asp-items="Html.GetEnumSelectList<Sign>()" class="form-control">
+            <option value="">-- Filtrar por tipo de signo vital --</option>
+        </select>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">Filtrar</button>
+            @if (Model.SignFilter.HasValue)
+            {
+                <a asp-page="./Index" class="btn btn-outline-danger">Limpiar</a>
+            }
+        </div>
+    </div>
+</form>
+
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Signo Vital</th>
+            <th>Valor Registrado</th>
+            <th>Fecha y Hora de Medición</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model.VitalSigns.Count == 0)
+{
+    <tr>
+        <td colspan="4" class="text-center text-muted">No se encontraron registros de signos vitales.</td>
+    </tr>
+}
+else
+{
+    @foreach (var item in Model.VitalSigns)
+    {
+        <tr>
+            <td>@item.Sign</td>
+            <td><strong>@item.Value</strong></td>
+            <td>@item.DateTime.ToString("dd/MM/yyyy HH:mm")</td>
+            <td class="text-center">
+                <a class="btn btn-sm btn-outline-warning" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-sm btn-outline-info" asp-page="./Details" asp-route-id="@item.Id">Detalles</a>
+                <a class="btn btn-sm btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

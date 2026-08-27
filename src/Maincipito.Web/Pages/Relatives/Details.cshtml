@@ -1,0 +1,49 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Relatives.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalles del Familiar";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        <a class="btn btn-warning" asp-page="./Edit" asp-route-id="@Model.Relative.Id">Editar</a>
+        <a class="btn btn-secondary" asp-page="./Index">Volver al listado</a>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">@Model.Relative.Name @Model.Relative.Surname</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Parentesco</dt>
+            <dd class="col-sm-9">@Model.Relative.Relationship</dd>
+
+            <dt class="col-sm-3">Género</dt>
+            <dd class="col-sm-9">@Model.Relative.Gender</dd>
+
+            <dt class="col-sm-3">Teléfono</dt>
+            <dd class="col-sm-9">@Model.Relative.Cellphone</dd>
+
+            <dt class="col-sm-3">Correo Electrónico</dt>
+            <dd class="col-sm-9">@Model.Relative.Email</dd>
+
+            <dt class="col-sm-3">Paciente Vinculado</dt>
+            <dd class="col-sm-9">
+                @if (Model.Patient is not null)
+                {
+                    <a asp-page="/Patients/Details" asp-route-id="@Model.Patient.Id" class="text-info font-weight-bold">
+                        @Model.Patient.Name @Model.Patient.Surname (ID: @Model.Patient.Id)
+                    </a>
+                }
+                else
+                {
+                    <span class="text-muted">Sin paciente vinculado actualmente.</span>
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
