@@ -1,20 +1,24 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Hospi.App.Persistence.Migrations
+#nullable disable
+
+namespace Maincipito.Persistence.Migrations
 {
-    public partial class Init : Migration
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Histories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Diagnosis = table.Column<string>(nullable: true),
-                    Enviroment = table.Column<string>(nullable: true)
+                    Diagnosis = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Environment = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,11 +29,11 @@ namespace Hospi.App.Persistence.Migrations
                 name: "CareSuggestions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Description = table.Column<string>(maxLength: 200, nullable: true),
-                    HistoryId = table.Column<int>(nullable: true)
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    HistoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,77 +42,72 @@ namespace Hospi.App.Persistence.Migrations
                         name: "FK_CareSuggestions_Histories_HistoryId",
                         column: x => x.HistoryId,
                         principalTable: "Histories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "People",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Surname = table.Column<string>(maxLength: 50, nullable: false),
-                    Cellphone = table.Column<string>(maxLength: 50, nullable: false),
-                    Genre = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
-                    MedicalSpecialty = table.Column<string>(maxLength: 50, nullable: true),
-                    Code = table.Column<string>(maxLength: 50, nullable: true),
-                    RethusRecord = table.Column<string>(maxLength: 50, nullable: true),
-                    ProfessionalCard = table.Column<string>(maxLength: 50, nullable: true),
-                    WorkingHours = table.Column<int>(nullable: true),
-                    HistoryId = table.Column<int>(nullable: true),
-                    RelativeId = table.Column<int>(nullable: true),
-                    NurseId = table.Column<int>(nullable: true),
-                    DoctorId = table.Column<int>(nullable: true),
-                    Address = table.Column<string>(maxLength: 100, nullable: true),
-                    Latitude = table.Column<string>(nullable: true),
-                    Longitude = table.Column<string>(nullable: true),
-                    City = table.Column<string>(maxLength: 50, nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: true),
-                    Relationship = table.Column<string>(maxLength: 50, nullable: true),
-                    Email = table.Column<string>(maxLength: 50, nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Cellphone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Gender = table.Column<int>(type: "int", nullable: false),
+                    Discriminator = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
+                    MedicalSpecialty = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    RethusRecord = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ProfessionalCard = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    WorkingHours = table.Column<int>(type: "int", nullable: true),
+                    HistoryId = table.Column<int>(type: "int", nullable: true),
+                    RelativeId = table.Column<int>(type: "int", nullable: true),
+                    NurseId = table.Column<int>(type: "int", nullable: true),
+                    DoctorId = table.Column<int>(type: "int", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Latitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Longitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Relationship = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_People", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_People_People_DoctorId",
-                        column: x => x.DoctorId,
-                        principalTable: "People",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_People_Histories_HistoryId",
                         column: x => x.HistoryId,
                         principalTable: "Histories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_People_People_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "People",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_People_People_NurseId",
                         column: x => x.NurseId,
                         principalTable: "People",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_People_People_RelativeId",
                         column: x => x.RelativeId,
                         principalTable: "People",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "VitalSigns",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Value = table.Column<string>(nullable: false),
-                    Sign = table.Column<int>(nullable: false),
-                    PatientId = table.Column<int>(nullable: true)
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sign = table.Column<int>(type: "int", nullable: false),
+                    PatientId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -117,8 +116,7 @@ namespace Hospi.App.Persistence.Migrations
                         name: "FK_VitalSigns_People_PatientId",
                         column: x => x.PatientId,
                         principalTable: "People",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -152,6 +150,7 @@ namespace Hospi.App.Persistence.Migrations
                 column: "PatientId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
