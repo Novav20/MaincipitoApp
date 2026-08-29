@@ -1,0 +1,67 @@
+@page "{id:int}"
+@model Maincipito.Web.Pages.Patients.AssignRelative.AssignRelativeModel
+
+@{
+    ViewData["Title"] = "Asignar Familiar";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+    <div>
+        <a class="btn btn-outline-primary" asp-page="/Relatives/Create" asp-route-patientId="@Model.Patient.Id">
+            <i class="fas fa-user-plus"></i> Crear Nuevo Familiar
+        </a>
+        <a class="btn btn-secondary ml-2" asp-page="/Patients/Details" asp-route-id="@Model.Patient.Id">Volver al Paciente</a>
+    </div>
+</div>
+
+<div class="alert alert-info">
+    <strong>Paciente:</strong> @Model.Patient.Name @Model.Patient.Surname (ID: @Model.Patient.Id)
+</div>
+
+<h4 class="mt-4">Seleccione un familiar registrado del catálogo:</h4>
+<table class="table table-hover table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Nombre(s)</th>
+            <th>Apellido(s)</th>
+            <th>Parentesco</th>
+            <th>Teléfono</th>
+            <th>Correo Electrónico</th>
+            <th class="text-center">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model.Relatives.Count == 0)
+{
+    <tr>
+        <td colspan="6" class="text-center text-muted">
+            No hay familiares registrados en el sistema. 
+            <a asp-page="/Relatives/Create" asp-route-patientId="@Model.Patient.Id">Haga clic aquí para registrar uno nuevo.</a>
+        </td>
+    </tr>
+}
+else
+{
+    @foreach (var item in Model.Relatives)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Relationship</td>
+            <td>@item.Cellphone</td>
+            <td>@item.Email</td>
+            <td class="text-center">
+                <form method="post" class="d-inline">
+                    <input type="hidden" asp-for="PatientId" value="@Model.Patient.Id" />
+                    <input type="hidden" asp-for="RelativeId" value="@item.Id" />
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        <i class="fas fa-link"></i> Asignar
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

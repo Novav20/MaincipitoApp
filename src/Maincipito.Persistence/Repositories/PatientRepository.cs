@@ -53,6 +53,18 @@ public class PatientRepository(MaincipitoDbContext context) : Repository<Patient
         await Context.SaveChangesAsync(cancellationToken);
         return relative;
     }
+    public async Task<Relative?> AssignRelativeAsync(int patientId, int relativeId, CancellationToken cancellationToken = default)
+    {
+        var patient = await DbSet.FindAsync([patientId], cancellationToken);
+        if (patient is null) return null;
+
+        var relative = await Context.Relatives.FindAsync([relativeId], cancellationToken);
+        if (relative is null) return null;
+
+        patient.Relative = relative;
+        await Context.SaveChangesAsync(cancellationToken);
+        return relative;
+    }
 
     public async Task<History?> AssignHistoryAsync(int patientId, History history, CancellationToken cancellationToken = default)
     {
