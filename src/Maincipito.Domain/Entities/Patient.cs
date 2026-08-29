@@ -9,7 +9,7 @@ public class Patient : Person
     public History? History { get; set; }
 
     [Display(Name = "Signos Vitales")]
-    public IList<VitalSign> VitalSigns { get; set; } = new List<VitalSign>();
+    public IList<VitalSign> VitalSigns { get; set; } = [];
 
     [Display(Name = "Familiar")]
     public Relative? Relative { get; set; }

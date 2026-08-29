@@ -10,7 +10,7 @@ public class History
     public int Id { get; set; }
 
     [Display(Name = "Sugerencias")]
-    public IList<CareSuggestion> Suggestions { get; set; } = new List<CareSuggestion>();
+    public IList<CareSuggestion> Suggestions { get; set; } = [];
 
     [Display(Name = "Diagnóstico")]
     [StringLength(200)]

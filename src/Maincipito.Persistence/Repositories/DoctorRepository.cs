@@ -20,6 +20,7 @@ public class DoctorRepository(MaincipitoDbContext context) : Repository<Doctor>(
 
         if (!string.IsNullOrWhiteSpace(searchString))
         {
+            //TODO: OCP violated if new search criteria are added. Consider using Specification pattern or Expression<Func<Doctor, bool>> for more flexibility.
             query = query.Where(d => d.Name.Contains(searchString) || d.Surname.Contains(searchString) || d.MedicalSpecialty.Contains(searchString));
         }
 

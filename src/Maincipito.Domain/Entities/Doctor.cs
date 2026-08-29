@@ -19,5 +19,5 @@ public class Doctor : Person
     public string RethusRecord { get; set; } = string.Empty;
 
     [Display(Name = "Pacientes a cargo")]
-    public IList<Patient> Patients { get; set; } = new List<Patient>();
+    public IList<Patient> Patients { get; set; } = [];
 }

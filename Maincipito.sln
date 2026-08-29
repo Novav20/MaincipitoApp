@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maincipito.Persistence", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maincipito.Web", "src\Maincipito.Web\Maincipito.Web.csproj", "{FECC5F3E-418C-4C71-A198-60EE97CBC6D3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5A0A9892-863D-4094-8D25-47A4EFBC1D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maincipito.Domain.Tests", "tests\Maincipito.Domain.Tests\Maincipito.Domain.Tests.csproj", "{36722C3D-4278-45C7-9470-873D99F0336A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maincipito.Persistence.Tests", "tests\Maincipito.Persistence.Tests\Maincipito.Persistence.Tests.csproj", "{D3AB09CF-FACD-49D2-8FE8-C51476B68F89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +38,20 @@ Global
 		{FECC5F3E-418C-4C71-A198-60EE97CBC6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FECC5F3E-418C-4C71-A198-60EE97CBC6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FECC5F3E-418C-4C71-A198-60EE97CBC6D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36722C3D-4278-45C7-9470-873D99F0336A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36722C3D-4278-45C7-9470-873D99F0336A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36722C3D-4278-45C7-9470-873D99F0336A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36722C3D-4278-45C7-9470-873D99F0336A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3AB09CF-FACD-49D2-8FE8-C51476B68F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3AB09CF-FACD-49D2-8FE8-C51476B68F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3AB09CF-FACD-49D2-8FE8-C51476B68F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3AB09CF-FACD-49D2-8FE8-C51476B68F89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7C9008F1-0F24-4E58-A291-CF2EF1E6F367} = {18992461-26A4-4B60-9B28-51868295A346}
 		{ECDF0F98-56CF-4C2D-BDB3-8E293D415E60} = {18992461-26A4-4B60-9B28-51868295A346}
 		{FECC5F3E-418C-4C71-A198-60EE97CBC6D3} = {18992461-26A4-4B60-9B28-51868295A346}
+		{36722C3D-4278-45C7-9470-873D99F0336A} = {5A0A9892-863D-4094-8D25-47A4EFBC1D84}
+		{D3AB09CF-FACD-49D2-8FE8-C51476B68F89} = {5A0A9892-863D-4094-8D25-47A4EFBC1D84}
 	EndGlobalSection
 EndGlobal
