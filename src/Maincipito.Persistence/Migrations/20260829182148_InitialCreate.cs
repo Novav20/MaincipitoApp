@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -41,7 +42,8 @@ namespace Maincipito.Persistence.Migrations
                         name: "FK_CareSuggestions_Histories_HistoryId",
                         column: x => x.HistoryId,
                         principalTable: "Histories",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,22 +81,26 @@ namespace Maincipito.Persistence.Migrations
                         name: "FK_People_Histories_HistoryId",
                         column: x => x.HistoryId,
                         principalTable: "Histories",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_People_People_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "People",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_People_People_NurseId",
                         column: x => x.NurseId,
                         principalTable: "People",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_People_People_RelativeId",
                         column: x => x.RelativeId,
                         principalTable: "People",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,7 +121,8 @@ namespace Maincipito.Persistence.Migrations
                         name: "FK_VitalSigns_People_PatientId",
                         column: x => x.PatientId,
                         principalTable: "People",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -131,7 +138,9 @@ namespace Maincipito.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_People_HistoryId",
                 table: "People",
-                column: "HistoryId");
+                column: "HistoryId",
+                unique: true,
+                filter: "[HistoryId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_People_NurseId",

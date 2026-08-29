@@ -19,7 +19,7 @@ builder.Services.AddControllersWithViews();
 // Base de Datos de Dominio (SQL Server en Docker)
 builder.Services.AddDbContext<MaincipitoDbContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("MyAppContext") 
+        builder.Configuration.GetConnectionString("MyAppContext")
         ?? throw new InvalidOperationException("Cadena de conexión 'MyAppContext' no encontrada."),
         sqlOptions => sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
@@ -75,5 +75,23 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();
+
+// ==========================================
+// 3. Inicialización de Datos Automática (Seeding)
+// ==========================================
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<MaincipitoDbContext>();
+        await DbInitializer.SeedAsync(context);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Error al inicializar la base de datos con datos de prueba.");
+    }
+}
 
 app.Run();

@@ -36,6 +36,18 @@ Maincipito/
 
 ---
 
+## 📸 Capturas de la Interfaz
+
+| Gestión y Detalles del Paciente | Historia Clínica y Soporte de Decisiones |
+| :---: | :---: |
+| ![Detalles del Paciente](docs/assets/screenshots/patient-details.png) | ![Historia Clínica](docs/assets/screenshots/clinical-history.png) |
+
+| Acceso y Autenticación Segura | Registro de Pacientes |
+| :---: | :---: |
+| ![Inicio de Sesión](docs/assets/screenshots/login.png) | ![Listado de Pacientes](docs/assets/screenshots/patients-list.png) |
+---
+
+
 ## 🛠️ Stack Tecnológico
 
 | Componente | Tecnología |

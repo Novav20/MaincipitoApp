@@ -213,7 +213,9 @@ namespace Maincipito.Persistence.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("HistoryId");
+                    b.HasIndex("HistoryId")
+                        .IsUnique()
+                        .HasFilter("[HistoryId] IS NOT NULL");
 
                     b.HasIndex("NurseId");
 
@@ -243,33 +245,39 @@ namespace Maincipito.Persistence.Migrations
                 {
                     b.HasOne("Maincipito.Domain.Entities.History", null)
                         .WithMany("Suggestions")
-                        .HasForeignKey("HistoryId");
+                        .HasForeignKey("HistoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Maincipito.Domain.Entities.VitalSign", b =>
                 {
                     b.HasOne("Maincipito.Domain.Entities.Patient", null)
                         .WithMany("VitalSigns")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Maincipito.Domain.Entities.Patient", b =>
                 {
                     b.HasOne("Maincipito.Domain.Entities.Doctor", "Doctor")
                         .WithMany("Patients")
-                        .HasForeignKey("DoctorId");
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Maincipito.Domain.Entities.History", "History")
-                        .WithMany()
-                        .HasForeignKey("HistoryId");
+                        .WithOne()
+                        .HasForeignKey("Maincipito.Domain.Entities.Patient", "HistoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Maincipito.Domain.Entities.Nurse", "Nurse")
                         .WithMany()
-                        .HasForeignKey("NurseId");
+                        .HasForeignKey("NurseId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Maincipito.Domain.Entities.Relative", "Relative")
                         .WithMany()
-                        .HasForeignKey("RelativeId");
+                        .HasForeignKey("RelativeId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Doctor");
 
