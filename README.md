@@ -1,107 +1,108 @@
-# MaincipitoApp — Home Hospitalization & Clinical Care Platform
+# MaincipitoApp — Plataforma de Hospitalización Domiciliaria y Gestión Clínica
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=flat&logo=dotnet)](https://dotnet.microsoft.com/)
-[![C#](https://img.shields.io/badge/C%23-12.0-239120?style=flat&logo=csharp)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![Database](https://img.shields.io/badge/Database-SQL_Server_2022-CC292B?style=flat&logo=microsoftsqlserver)](https://www.microsoft.com/en-us/sql-server)
-[![Docker](https://img.shields.io/badge/Container-Docker-2496ED?style=flat&logo=docker)](https://www.docker.com/)
-[![Tests](https://img.shields.io/badge/Tests-xUnit_%2B_FluentAssertions-informational?style=flat)](https://xunit.net/)
+[![C#](https://img.shields.io/badge/C%23-12.0-239120?style=flat&logo=csharp)](https://docs.microsoft.com/es-es/dotnet/csharp/)
+[![Base de Datos](https://img.shields.io/badge/Database-SQL_Server_2022-CC292B?style=flat&logo=microsoftsqlserver)](https://www.microsoft.com/es-es/sql-server)
+[![Docker](https://img.shields.io/badge/Contenedor-Docker-2496ED?style=flat&logo=docker)](https://www.docker.com/)
+[![Pruebas](https://img.shields.io/badge/Pruebas-xUnit_%2B_FluentAssertions-informational?style=flat)](https://xunit.net/)
+[![Misión TIC](https://img.shields.io/badge/Misi%C3%B3n_TIC_2022-Universidad_de_Caldas-008080?style=flat)](https://www.ucaldas.edu.co/)
 
-MaincipitoApp is a layered healthcare enterprise web application designed for outpatient home care management, clinical history tracking, vital signs monitoring, and healthcare personnel assignment.
+**MaincipitoApp** es una aplicación web empresarial diseñada para la gestión clínica de pacientes ambulatorios en programas de hospitalización en casa, seguimiento de historias clínicas, registro y monitoreo de parámetros fisiológicos (signos vitales) y asignación de personal médico.
 
-Originally developed as an academic foundation, this repository has been refactored and modernized to **.NET 8**, implementing **Clean Architecture / N-Tier separation**, the **Generic Repository Pattern with 100% Async/Await semantics**, and containerized persistence using **Microsoft SQL Server 2022**.
+Originado como proyecto integrador en el programa **Misión TIC 2022 (Universidad de Caldas)**, este repositorio ha sido completamente refactorizado y modernizado a **.NET 8**, adoptando **Arquitectura  N-Capas**, el **Patrón de Repositorio Genérico 100% Asíncrono (`Async/Await`)**, gobernanza de seguridad con **Secret Manager (`user-secrets`)** y persistencia en contenedor **Microsoft SQL Server 2022 con Docker Compose**.
 
 ---
 
-## 🏛️ Architecture & Solution Layout
+## 🏛️ Arquitectura y Estructura de la Solución
 
-The solution is strictly organized into `src/` (production code) and `tests/` (automated test suites) following Domain-Driven Design (DDD) layering:
+La solución está estructurada bajo principios de separación de responsabilidades y **Domain-Driven Design (DDD)**, dividida formalmente en `src/` (código de producción) y `tests/` (suite de pruebas automatizadas):
 
 ```text
 Maincipito/
 ├── src/
-│   ├── Maincipito.Domain/          # Pure Domain layer: Entities, Enums, and Repository Contracts (DIP)
-│   ├── Maincipito.Persistence/     # Infrastructure layer: EF Core 8 DbContext, Repositories, Migrations
-│   └── Maincipito.Web/             # Presentation layer: ASP.NET Core 8 Razor Pages & Identity UI
+│   ├── Maincipito.Domain/          # Capa de Dominio pura: Entidades, Enums, Contratos de Repositorios (DIP)
+│   ├── Maincipito.Persistence/     # Capa de Infraestructura: DbContext EF Core 8, Repositorios Async, Migraciones
+│   └── Maincipito.Web/             # Capa de Presentación: ASP.NET Core 8 Razor Pages, Identity UI y Tokens de Diseño
 └── tests/
-    ├── Maincipito.Domain.Tests/    # Unit tests: Entity invariants & DataAnnotations validation
-    └── Maincipito.Persistence.Tests/# Integration tests: EF Core In-Memory Repository operations
+    ├── Maincipito.Domain.Tests/    # Pruebas unitarias: Invariantes de dominio y validación DataAnnotations
+    └── Maincipito.Persistence.Tests/# Pruebas de integración: Repositorios aislados con EF Core InMemory DB
 ```
 
-### Key Architectural Highlights
-1. **Dependency Inversion Principle (DIP):** Repository contracts (`IRepository<T>`, `IPatientRepository`, etc.) live in the **Domain** layer, while concrete implementations and EF Core dependencies are isolated inside **Persistence**.
-2. **Modern C# 12 Standards:** File-scoped namespaces, Nullable Reference Types (`<Nullable>enable</Nullable>`), Primary Constructors, Collection Expressions (`[]`), and Pattern Matching.
-3. **Async-First Data Access:** All repository methods leverage `Task<T>`, `CancellationToken`, `AsNoTracking()`, and asynchronous EF Core execution (`ToListAsync`, `FirstOrDefaultAsync`, `FindAsync`).
-4. **Security & Secrets Governance:** Database credentials and connection strings are managed via `dotnet user-secrets` in development and environment variables (`.env`) for Docker Compose, avoiding hardcoded secrets.
+### Principales Aspectos de Ingeniería
+1. **Principio de Inversión de Dependencias (DIP):** Las interfaces de persistencia (`IRepository<T>`, `IPatientRepository`, etc.) residen en la capa de **Dominio**, mientras que las implementaciones de base de datos están aisladas en **Persistencia**, garantizando desacoplamiento del framework.
+2. **C# 12 Moderno:** Adopción de *File-scoped namespaces*, análisis de nulabilidad estricto (`<Nullable>enable</Nullable>`), *Primary Constructors*, *Collection Expressions* (`[]`) y *Pattern Matching*.
+3. **Acceso a Datos Asíncrono de Alto Rendimiento:** Consultas optimizadas con `Task<T>`, `CancellationToken`, `AsNoTracking()` para lecturas y mitigación de explosión cartesiana mediante `QuerySplittingBehavior.SplitQuery`.
+4. **Seguridad y Gestión de Secretos:** Eliminación total de credenciales en código fuente mediante `dotnet user-secrets` en desarrollo y parametrización con `.env` para Docker.
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Stack Tecnológico
 
-| Layer / Concern | Technology |
+| Componente | Tecnología |
 | :--- | :--- |
-| **Runtime & Language** | .NET 8 SDK / C# 12 |
-| **Web Presentation** | ASP.NET Core 8 Razor Pages (Minimal Hosting in `Program.cs`) |
-| **Authentication & Security** | ASP.NET Core Identity (Cookie-based auth & EF Core Stores) |
-| **ORM & Data Access** | Entity Framework Core 8.0 (`Microsoft.EntityFrameworkCore.SqlServer`) |
-| **Database** | Microsoft SQL Server 2022 (Linux Container via Docker Compose) |
-| **Testing Frameworks** | xUnit, FluentAssertions, EF Core In-Memory Database |
-| **DevOps & Tooling** | Docker, Docker Compose, EF Core Design-Time Factory |
+| **Lenguaje y Runtime** | C# 12 / .NET 8.0 SDK |
+| **Presentación Web** | ASP.NET Core 8 Razor Pages (*Minimal Hosting* en `Program.cs`) |
+| **Autenticación y Seguridad** | ASP.NET Core Identity (Autenticación basada en cookies) |
+| **ORM y Persistencia** | Entity Framework Core 8.0 (`Microsoft.EntityFrameworkCore.SqlServer`) |
+| **Motor de Base de Datos** | Microsoft SQL Server 2022 (Linux Container vía Docker Compose) |
+| **Suite de Pruebas** | xUnit, FluentAssertions, EF Core In-Memory Database Provider |
+| **Diseño y UI** | Bootstrap 5, FontAwesome, Tokens de Diseño CSS con numeración tabular |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Guía de Instalación y Ejecución Local
 
-### Prerequisites
-* [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-* [Docker Desktop](https://www.docker.com/products/docker-desktop) or Docker Engine
+### Prerrequisitos
+* [.NET 8.0 SDK](https://dotnet.microsoft.com/es-es/download/dotnet/8.0)
+* [Docker Engine](https://docs.docker.com/engine/install/) y Docker Compose
 
-### 1. Clone the repository
+### 1. Clonar el repositorio
 ```bash
 git clone https://github.com/Novav20/MaincipitoApp.git
 cd MaincipitoApp
 ```
 
-### 2. Configure Environment & Start SQL Server
+### 2. Configurar Entorno e Iniciar SQL Server
 ```bash
-# Copy the environment template
+# Copiar plantilla de variables de entorno
 cp .env.example .env
 
-# Start SQL Server 2022 container in background
+# Levantar el contenedor de SQL Server 2022 en segundo plano
 docker compose up -d
 ```
 
-### 3. Initialize User Secrets (Development Connection String)
+### 3. Configurar Secretos de Desarrollo (User Secrets)
 ```bash
-# Configure Web Project Secrets
+# Configurar secretos del proyecto Web
 dotnet user-secrets init --project src/Maincipito.Web
 dotnet user-secrets set "ConnectionStrings:MyAppContext" "Server=localhost,1433;Database=MaincipitoAppDb;User Id=sa;Password=MaincipitoStrongPass2026!;TrustServerCertificate=True;MultipleActiveResultSets=true" --project src/Maincipito.Web
 dotnet user-secrets set "ConnectionStrings:IdentityDataContextConnection" "Server=localhost,1433;Database=MaincipitoIdentityDb;User Id=sa;Password=MaincipitoStrongPass2026!;TrustServerCertificate=True;MultipleActiveResultSets=true" --project src/Maincipito.Web
 
-# Configure Persistence Project Secrets (for Design-Time Migrations)
+# Configurar secretos del proyecto Persistence (para migraciones en tiempo de diseño)
 dotnet user-secrets init --project src/Maincipito.Persistence
 dotnet user-secrets set "ConnectionStrings:MyAppContext" "Server=localhost,1433;Database=MaincipitoAppDb;User Id=sa;Password=MaincipitoStrongPass2026!;TrustServerCertificate=True;MultipleActiveResultSets=true" --project src/Maincipito.Persistence
 ```
 
-### 4. Apply Database Migrations
+### 4. Aplicar Migraciones de Base de Datos
 ```bash
-# Apply Domain Migrations
+# Aplicar migraciones del Dominio
 dotnet ef database update --project src/Maincipito.Persistence --startup-project src/Maincipito.Persistence --context MaincipitoDbContext
 
-# Apply Identity Security Migrations
+# Aplicar migraciones de Seguridad e Identidad
 dotnet ef database update --project src/Maincipito.Web --startup-project src/Maincipito.Web --context IdentityDataContext
 ```
 
-### 5. Run the Application
+### 5. Iniciar la Aplicación Web
 ```bash
 dotnet run --project src/Maincipito.Web
 ```
-Navigate to `http://localhost:5000` (or `https://localhost:5001`).
+Abre en tu navegador: **`http://localhost:5000`** (o `https://localhost:5001`).
 
 ---
 
-## 🧪 Running Automated Tests
+## 🧪 Ejecución de Pruebas Automatizadas
 
-Run the full test suite across all test projects:
+Ejecuta la suite completa de pruebas unitarias y de integración:
 
 ```bash
 dotnet test
@@ -109,5 +110,5 @@ dotnet test
 
 ---
 
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
+## 📄 Licencia
+Este proyecto es de código abierto y está disponible bajo la licencia [MIT](LICENSE).

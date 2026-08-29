@@ -97,3 +97,15 @@ main {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
 }
+
+/* ==========================================================================
+   CLINICAL METRICS & TABULAR ALIGNMENT (NHS / Epic Systems Standard)
+   ========================================================================== */
+.table td, .table th, .badge, dl dd {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f5f9;
+}
