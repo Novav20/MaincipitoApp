@@ -19,8 +19,9 @@ builder.Services.AddControllersWithViews();
 // Base de Datos de Dominio (SQL Server en Docker)
 builder.Services.AddDbContext<MaincipitoDbContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("MyAppContext")
-        ?? throw new InvalidOperationException("Cadena de conexión 'MyAppContext' no encontrada.")));
+        builder.Configuration.GetConnectionString("MyAppContext") 
+        ?? throw new InvalidOperationException("Cadena de conexión 'MyAppContext' no encontrada."),
+        sqlOptions => sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
 // Base de Datos de Identidad y Seguridad (SQL Server en Docker)
 builder.Services.AddDbContext<IdentityDataContext>(options =>

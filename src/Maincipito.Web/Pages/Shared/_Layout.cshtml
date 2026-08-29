@@ -1,70 +1,84 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] -Hospitalización en Casa</title>
+    <title>@ViewData["Title"] - Hospitalización en Casa</title>
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Custom Site Styles & Design Tokens -->
     <link rel="stylesheet" href="~/css/site.css" />
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-4">
             <div class="container">
-                <a style="font-family: Lucida Handwriting, cursive; font-size: large;" class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/img/content_hub-happy_drivers-heart_icon.svg" alt="" width="50" height="50" style="margin-right: 5px;">Hospitalizacion en Casa</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/img/content_hub-happy_drivers-heart_icon.svg" alt="Logo" width="36" height="36" class="mr-2" />
+                    Hospitalización en Casa
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a style="font-family: Verdana, sans-serif; font-style: italic;" class="nav-link text-dark" asp-area="" asp-page="/Patients/Index">Pacientes Registrados</a>
+                            <a class="nav-link font-weight-bold" asp-area="" asp-page="/Patients/Index">
+                                <i class="fas fa-user-injured text-primary"></i> Pacientes
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a style="font-family: Verdana, sans-serif; font-style: italic;" class="nav-link text-dark" asp-area="" asp-page="/Doctors/Index">Médicos Registrados</a>
+                            <a class="nav-link font-weight-bold" asp-area="" asp-page="/Doctors/Index">
+                                <i class="fas fa-user-md text-primary"></i> Médicos
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a style="font-family: Verdana, sans-serif; font-style: italic;" class="nav-link text-dark" asp-area="" asp-page="/Relatives/Index">Familiares Registrados</a>
+                            <a class="nav-link font-weight-bold" asp-area="" asp-page="/Relatives/Index">
+                                <i class="fas fa-users text-primary"></i> Familiares
+                            </a>
                         </li>
-                        <li><a style="font-family: Verdana, sans-serif; font-style: italic; margin-left: 5rem;" class="nav-link text-dark" asp-area="identity" asp-page="/Account/Logout" asp-route-returnUrl="/">Logout</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" asp-area="" asp-page="/VitalSigns/Index">
+                                <i class="fas fa-heartbeat text-danger"></i> Signos Vitales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" asp-area="" asp-page="/Histories/Index">
+                                <i class="fas fa-file-medical text-primary"></i> Historias Clínicas
+                            </a>
+                        </li>
                     </ul>
+
+                    <!-- Componente Modular de Autenticación / Identity -->
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-4">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Hospitalizacion en Casa - <a asp-area="" asp-page="/Privacy"></a>
-        </div>
-        <div>
-            <section class="social">
-                <p>Follow Hospitalizacion en Casa</p>
-                <div class="links">
-                    <a href="https://facebook.com">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://linkdin.com">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </section>
+    <footer class="footer py-3 mt-auto">
+        <div class="container text-center">
+            <span>&copy; @DateTime.Now.Year - Hospitalización en Casa — Plataforma de Gestión y Monitoreo Ambulatorio.</span>
+            <div class="mt-1">
+                <a class="text-muted" asp-area="" asp-page="/Privacy">Política de Privacidad</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

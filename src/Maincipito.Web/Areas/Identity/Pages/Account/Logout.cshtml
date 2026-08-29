@@ -1,10 +1,22 @@
 ﻿@page
 @model LogoutModel
 @{
-    ViewData["Title"] = "Log out";
+    ViewData["Title"] = "Sesión Finalizada";
+    Layout = "/Pages/Shared/_LayoutLogin.cshtml";
 }
 
-<header>
-    <h1>@ViewData["Title"]</h1>
-    <p>You have successfully logged out of the application.</p>
-</header>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="card shadow-sm p-4">
+            <div class="mb-3 text-success">
+                <i class="fas fa-check-circle fa-4x"></i>
+            </div>
+            <h2>Sesión Cerrada Exitosamente</h2>
+            <p class="text-muted">Ha salido de forma segura de la plataforma de Hospitalización en Casa.</p>
+            <div class="mt-4">
+                <a asp-page="/Account/Login" class="btn btn-primary">Iniciar Sesión Nuevamente</a>
+                <a asp-page="/Index" asp-area="" class="btn btn-outline-secondary ml-2">Ir al Inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
